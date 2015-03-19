@@ -15,8 +15,8 @@ public class SimpleSlickGame extends BasicGame
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
 	private Image ball = null, gameBackground = null, player = null, block = null;
-	public int blocksPerRow = 8; public int blockRows = 2;
-	//public Block blocks[] = new Block[NumBlocks_Rows]; //Create an array for blocks, holds the different blocks(block colors). Create a seperate block class script
+	public int blocksPerRow = 8; public int blockRows = 2; public int totalBlocks = 24;
+	private String [] blocks = new String[totalBlocks];//Create an array for blocks, holds the different blocks(block colors). Create a separate block class script
 	private boolean leftInput = false, rightInput = false;
 	
 	public SimpleSlickGame(String gamename)
@@ -34,9 +34,13 @@ public class SimpleSlickGame extends BasicGame
 		block = new Image("data/block.png");
 		
 	}
-	//*Create the blocks*
+	//Create the blocks
 	public void createBlocks(){
 		//Initializes Blocks
+		for (int i = 0; i < blocks.length; i++) {
+            //(blocks[i]);
+            
+}
 		
 		
 	}
