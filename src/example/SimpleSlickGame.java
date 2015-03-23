@@ -2,6 +2,8 @@ package example;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import jdk.nashorn.internal.runtime.Debug;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -22,14 +24,30 @@ public class SimpleSlickGame extends BasicGame
 		super(gamename);
 	}
 
+	public static void main(String[] args)
+	{
+		try
+		{
+			AppGameContainer appgc;
+			appgc = new AppGameContainer(new SimpleSlickGame("BreakOut 2015"));
+			appgc.setDisplayMode(sHeight, sWidth, false);
+			
+			appgc.start();
+		}
+		catch (SlickException ex)
+		{
+			Logger.getLogger(SimpleSlickGame.class.getName()).log(Level.SEVERE, null, ex);
+		}
+	}
+	
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+		gc.setShowFPS(false);
 		
 		//Initializes images.
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
-		
 	}
 
 	@Override
@@ -42,13 +60,11 @@ public class SimpleSlickGame extends BasicGame
 			leftInput = false;
 		}
 		
-		
 		if(input.isKeyDown(Input.KEY_RIGHT)){
 			rightInput = true;
 		} else {
 			rightInput = false;
 		}
-		
 	}
 
 	@Override
@@ -70,20 +86,5 @@ public class SimpleSlickGame extends BasicGame
 			playerX = playerX + playerSpeed;
 		}
 	}
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			AppGameContainer appgc;
-			appgc = new AppGameContainer(new SimpleSlickGame("BreakOut 2015"));
-			appgc.setDisplayMode(sHeight, sWidth, false);
-			
-			appgc.start();
-		}
-		catch (SlickException ex)
-		{
-			Logger.getLogger(SimpleSlickGame.class.getName()).log(Level.SEVERE, null, ex);
-		}
-	}
+	
 }
