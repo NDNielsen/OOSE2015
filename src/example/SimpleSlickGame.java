@@ -2,7 +2,7 @@ package example;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jdk.nashorn.internal.runtime.Debug;
+//import jdk.nashorn.internal.runtime.Debug;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -14,10 +14,13 @@ import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
 {
-	static int sHeight = 640, sWidth = 480; 
+	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
-	private Image ball = null, gameBackground = null, player = null;
+	private Image ball = null, gameBackground = null, player = null; // block = null;
+	public int blocksPerRow = 8; public int blockRows = 2; public int totalBlocks = 24;
+	//private String [] blocks = new String[totalBlocks];//Create an array for blocks, holds the different blocks(block colors). Create a separate block class script
 	private boolean leftInput = false, rightInput = false;
+	
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -48,8 +51,8 @@ public class SimpleSlickGame extends BasicGame
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
-	}
 
+	}
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
 		Input input = gc.getInput();
