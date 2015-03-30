@@ -2,12 +2,15 @@ package com.oose.breakout;
 
 import org.newdawn.slick.Image;
 
+
 public class Entity {
 	protected int POSITION_X;
 	protected int POSITION_Y;
 	protected Image ENTITY_IMAGE;
 	protected boolean IS_ALIVE;
 	protected int SPEED;
+	
+	
 	
 	//Setters & Getters of entity
 	public int getSPEED() {
@@ -40,6 +43,7 @@ public class Entity {
 	public void setENTITY_IMAGE(Image eNTITY_IMAGE) {
 		ENTITY_IMAGE = eNTITY_IMAGE;
 	}
+	
 	
 	
 }

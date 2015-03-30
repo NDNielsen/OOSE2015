@@ -2,8 +2,6 @@ package com.oose.breakout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//import jdk.nashorn.internal.runtime.Debug;
-
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -19,7 +17,6 @@ public class Game extends BasicGame
 	private Image ball = null, gameBackground = null, player = null; // block = null;
 	public int blocksPerRow = 8; public int blockRows = 2; public int totalBlocks = 24;
 	private boolean leftInput = false, rightInput = false;
-	
 	
 	
 	
@@ -45,6 +42,12 @@ public class Game extends BasicGame
 		{
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
+		
+		
+		Player hero = new Player();
+		hero.setPOSITION_X(50);
+		hero.setPOSITION_Y(50);
+		
 	}
 	
 	
