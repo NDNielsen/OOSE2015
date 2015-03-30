@@ -6,9 +6,22 @@ public class Entity {
 	protected int POSITION_X;
 	protected int POSITION_Y;
 	protected Image ENTITY_IMAGE;
+	protected boolean IS_ALIVE;
+	protected int SPEED;
 	
-	
-	
+	//Setters & Getters of entity
+	public int getSPEED() {
+		return SPEED;
+	}
+	public void setSPEED(int sPEED) {
+		SPEED = sPEED;
+	}
+	public boolean isIS_ALIVE() {
+		return IS_ALIVE;
+	}
+	public void setIS_ALIVE(boolean iS_ALIVE) {
+		IS_ALIVE = iS_ALIVE;
+	}
 	public int getPOSITION_X() {
 		return POSITION_X;
 	}
