@@ -1,4 +1,4 @@
-package example;
+package com.oose.breakout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
