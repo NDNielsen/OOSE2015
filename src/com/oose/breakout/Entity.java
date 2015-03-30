@@ -5,9 +5,11 @@ import org.newdawn.slick.Image;
 public class Entity {
 	protected int POSITION_X;
 	protected int POSITION_Y;
-	protected Image ENTITY_IMAGE;
+	protected String ENTITY_IMAGE;
 	protected boolean IS_ALIVE;
 	protected int SPEED;
+	
+	
 	
 	//Setters & Getters of entity
 	public int getSPEED() {
@@ -34,10 +36,10 @@ public class Entity {
 	public void setPOSITION_Y(int pOSITION_Y) {
 		POSITION_Y = pOSITION_Y;
 	}
-	public Image getENTITY_IMAGE() {
+	public String getENTITY_IMAGE() {
 		return ENTITY_IMAGE;
 	}
-	public void setENTITY_IMAGE(Image eNTITY_IMAGE) {
+	public void setENTITY_IMAGE(String eNTITY_IMAGE) {
 		ENTITY_IMAGE = eNTITY_IMAGE;
 	}
 	
