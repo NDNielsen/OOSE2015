@@ -18,8 +18,9 @@ public class SimpleSlickGame extends BasicGame
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
 	private Image ball = null, gameBackground = null, player = null; // block = null;
 	public int blocksPerRow = 8; public int blockRows = 2; public int totalBlocks = 24;
-	//private String [] blocks = new String[totalBlocks];//Create an array for blocks, holds the different blocks(block colors). Create a separate block class script
 	private boolean leftInput = false, rightInput = false;
+	
+	
 	
 	
 	public SimpleSlickGame(String gamename)
@@ -27,6 +28,9 @@ public class SimpleSlickGame extends BasicGame
 		super(gamename);
 	}
 
+	
+	
+	
 	public static void main(String[] args)
 	{
 		try
@@ -43,6 +47,9 @@ public class SimpleSlickGame extends BasicGame
 		}
 	}
 	
+	
+	
+	
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
@@ -53,6 +60,10 @@ public class SimpleSlickGame extends BasicGame
 		player = new Image("data/paddle.png");
 
 	}
+	
+	
+	
+	
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
 		Input input = gc.getInput();
@@ -70,6 +81,10 @@ public class SimpleSlickGame extends BasicGame
 		}
 	}
 
+	
+	
+	
+	
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
