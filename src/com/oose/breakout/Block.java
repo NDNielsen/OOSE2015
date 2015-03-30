@@ -1,5 +1,5 @@
 package com.oose.breakout;
 
-public class Block {
+public class Block extends Entity{
 
 }

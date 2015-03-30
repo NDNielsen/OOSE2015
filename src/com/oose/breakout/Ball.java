@@ -1,5 +1,5 @@
 package com.oose.breakout;
 
-public class Ball {
+public class Ball extends Entity {
 
 }
