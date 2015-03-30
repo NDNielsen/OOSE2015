@@ -7,7 +7,7 @@ public class Level {
 		return GenerateLevel(level_id, amountOfBlock);
 		
 		// Create the Levels
-		Level level_1 = new Level (1, 25);
+		//Level level_1 = new Level (1, 25);
 	}
 }
 
