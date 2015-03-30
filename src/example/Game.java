@@ -12,7 +12,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
-public class SimpleSlickGame extends BasicGame
+public class Game extends BasicGame
 {
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
@@ -23,7 +23,7 @@ public class SimpleSlickGame extends BasicGame
 	
 	
 	
-	public SimpleSlickGame(String gamename)
+	public Game(String gamename)
 	{
 		super(gamename);
 	}
@@ -36,14 +36,14 @@ public class SimpleSlickGame extends BasicGame
 		try
 		{
 			AppGameContainer appgc;
-			appgc = new AppGameContainer(new SimpleSlickGame("BreakOut 2015"));
+			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
 			
 			appgc.start();
 		}
 		catch (SlickException ex)
 		{
-			Logger.getLogger(SimpleSlickGame.class.getName()).log(Level.SEVERE, null, ex);
+			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
 	
