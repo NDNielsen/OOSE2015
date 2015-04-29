@@ -13,8 +13,8 @@ public class Ball extends Entity {
 	
 	public Ball(){
 		setSpeed(0.3F);
-		yDirection = (-1)*getSpeed();
-		xDirection = getSpeed();
+		yDirection = -1;
+		xDirection = 1;
 		
 		startPos();
 		ball = new Circle(x, y,10);
@@ -26,20 +26,22 @@ public class Ball extends Entity {
 	}
 	
 	public void move() throws SlickException{
-		
+		  ball.setCenterX(x);
+		  ball.setCenterY(y);
+		  
 		  x += xDirection;
 	      y += yDirection;
 
 	      if (x == 0) {
-	        setXD(getSpeed());
+	        setXD(1);
 	      }
 
 	      if (x == 640) {
-	        setXD((-1)*getSpeed());
+	        setXD(-1);
 	      }
 
 	      if (y == 0) {
-	        setYD(getSpeed());
+	        setYD(1);
 	      }
 	    }
 	
