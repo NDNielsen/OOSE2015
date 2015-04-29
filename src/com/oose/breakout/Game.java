@@ -14,7 +14,8 @@ public class Game extends BasicGame
 {
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
-	private Image ball = null, gameBackground = null, player = null; // block = null;
+	private Image ball = null, gameBackground = null, player = null;
+	Block blocks[];
 	private boolean leftInput = false, rightInput = false;
 	
 	
@@ -22,6 +23,7 @@ public class Game extends BasicGame
 	public Game(String gamename)
 	{
 		super(gamename);
+		blocks = new Block[20];
 	}
 
 	
@@ -60,7 +62,17 @@ public class Game extends BasicGame
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
-
+		
+		//Create 20 blocks
+		int b = 0;
+		//Double for-loop, create 5 rows and 5 columns of blocks
+		for(int bRow = 0; bRow < 5; bRow++){ 
+			for(int bCol = 0; bCol < 5; bCol++){
+				blocks[b] = new Block(i *, j*) //placement of each block with x and y position
+				b++;
+			}
+		}
+		
 	}
 	
 	
@@ -105,6 +117,12 @@ public class Game extends BasicGame
 			g.drawString("Right!", 380, 200);
 			playerX = playerX + playerSpeed;
 		}
+		//Check state of each block calling the isDestroyed method
+		//Draw the blocks
+		
+		
+		
+		
 	}
 	
 }

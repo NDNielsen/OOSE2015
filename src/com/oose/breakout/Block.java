@@ -24,6 +24,7 @@ public class Block extends Entity{
 		ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
 		entityImage  = blockIcon;
 		
+		
 		blockWidth = entityImage;
 		blockHeight = entityImage;
 		
