@@ -16,7 +16,7 @@ public class Entity {
 	public float getSpeed() {
 		return speed;
 	}
-	public void setSPEED(int speed) {
+	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
 	public boolean isIsAlive() {
