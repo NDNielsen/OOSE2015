@@ -15,9 +15,6 @@ public class Game extends BasicGame
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
 	private Image ball = null, gameBackground = null, player = null; // block = null;
-	
-	//Initialization of variables for setting properties for blocks. Values are not final
-	//public int blocksPerRow = 8,blockRows = 10, blockSpace = 2, blockHeight = 34, blockWidth = 90, blockOffset = 50;  
 	private boolean leftInput = false, rightInput = false;
 	
 	
