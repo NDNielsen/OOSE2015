@@ -44,8 +44,8 @@ public class Game extends BasicGame
 		
 		
 		Player hero = new Player();
-		hero.setPOSITION_X(50);
-		hero.setPOSITION_Y(50);
+		hero.setPositionX(50);
+		hero.setPositionY(50);
 		
 	}
 	

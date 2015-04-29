@@ -4,44 +4,44 @@ import org.newdawn.slick.Image;
 
 
 public class Entity {
-	protected int POSITION_X;
-	protected int POSITION_Y;
-	protected Image ENTITY_IMAGE;
-	protected boolean IS_ALIVE;
-	protected int SPEED;
+	protected int positionX;
+	protected int positionY;
+	protected Image entityImage;
+	protected boolean isAlive;
+	public int speed;
 	
 	
 	
 	//Setters & Getters of entity
-	public int getSPEED() {
-		return SPEED;
+	public int getSpeed() {
+		return speed;
 	}
-	public void setSPEED(int sPEED) {
-		SPEED = sPEED;
+	public void setSPEED(int _speed) {
+		speed = _speed;
 	}
-	public boolean isIS_ALIVE() {
-		return IS_ALIVE;
+	public boolean isIsAlive() {
+		return isAlive;
 	}
-	public void setIS_ALIVE(boolean iS_ALIVE) {
-		IS_ALIVE = iS_ALIVE;
+	public void setIsAlive(boolean _isAlive) {
+		isAlive = _isAlive;
 	}
-	public int getPOSITION_X() {
-		return POSITION_X;
+	public int getPositionX() {
+		return positionX;
 	}
-	public void setPOSITION_X(int pOSITION_X) {
-		POSITION_X = pOSITION_X;
+	public void setPositionX(int _positionX) {
+		positionX = _positionX;
 	}
-	public int getPOSITION_Y() {
-		return POSITION_Y;
+	public int getPositionY() {
+		return positionY;
 	}
-	public void setPOSITION_Y(int pOSITION_Y) {
-		POSITION_Y = pOSITION_Y;
+	public void setPositionY(int _positionY) {
+		positionY = _positionY;
 	}
-	public Image getENTITY_IMAGE() {
-		return ENTITY_IMAGE;
+	public Image getEntityImage() {
+		return entityImage;
 	}
-	public void setENTITY_IMAGE(Image eNTITY_IMAGE) {
-		ENTITY_IMAGE = eNTITY_IMAGE;
+	public void setEntityImage(Image _entityImage) {
+		entityImage = _entityImage;
 	}
 	
 	

@@ -17,15 +17,15 @@ public class Block extends Entity{
 
 	public Block(int blockPosX, int blockPosY){
 		
-		this.POSITION_X = blockPosX;
-		this.POSITION_Y = blockPosY;
+		this.positionX = blockPosX;
+		this.positionY = blockPosY;
 		
 		//Accesses image of block
 		ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
-		ENTITY_IMAGE  = blockIcon;
+		entityImage  = blockIcon;
 		
-		blockWidth = ENTITY_IMAGE;
-		blockHeight = ENTITY_IMAGE;
+		blockWidth = entityImage;
+		blockHeight = entityImage;
 		
 		destroyed = false;
 		
