@@ -17,8 +17,8 @@ public class Block extends Entity{
 
 	public Block(int blockPosX, int blockPosY){
 		
-		this.positionX = blockPosX;
-		this.positionY = blockPosY;
+		this.x = blockPosX;
+		this.y = blockPosY;
 		
 		//Accesses image of block
 		ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
@@ -52,5 +52,4 @@ public class Block extends Entity{
 //		
 //	}
 //}
-	
 }//end: class Block

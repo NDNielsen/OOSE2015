@@ -9,6 +9,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Color;
 
 public class Game extends BasicGame
 {
@@ -17,11 +18,10 @@ public class Game extends BasicGame
 	private Image ball = null, gameBackground = null, player = null;
 	Block blocks[];
 	private boolean leftInput = false, rightInput = false;
+	Ball ball1 = null;
 	
 	
-	
-	public Game(String gamename)
-	{
+	public Game(String gamename) {
 		super(gamename);
 		blocks = new Block[20];
 	}
@@ -29,8 +29,7 @@ public class Game extends BasicGame
 	
 	
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args)	{
 		try
 		{
 			AppGameContainer appgc;
@@ -44,10 +43,9 @@ public class Game extends BasicGame
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-		
 		Player hero = new Player();
-		hero.setPositionX(50);
-		hero.setPositionY(50);
+		hero.setX(50);
+		hero.setY(50);
 		
 	}
 	
@@ -62,6 +60,7 @@ public class Game extends BasicGame
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
+<<<<<<< HEAD
 		
 		//Create 20 blocks
 		int b = 0;
@@ -73,6 +72,9 @@ public class Game extends BasicGame
 			}
 		}
 		
+=======
+		ball1 = new Ball();
+>>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
 	}
 	
 	
@@ -93,6 +95,9 @@ public class Game extends BasicGame
 		} else {
 			rightInput = false;
 		}
+		
+		
+		ball1.move();
 	}
 
 	
@@ -104,6 +109,7 @@ public class Game extends BasicGame
 	{
 		//Renders the images
 		gameBackground.draw();
+		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
 		player.draw(playerX, playerY);
 		ball.draw(290, 365);
@@ -117,11 +123,16 @@ public class Game extends BasicGame
 			g.drawString("Right!", 380, 200);
 			playerX = playerX + playerSpeed;
 		}
+<<<<<<< HEAD
 		//Check state of each block calling the isDestroyed method
 		//Draw the blocks
 		
 		
 		
+=======
+		
+		ball1.render(g, Color.blue);
+>>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
 		
 	}
 	

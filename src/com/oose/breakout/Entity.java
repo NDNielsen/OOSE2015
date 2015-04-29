@@ -4,44 +4,44 @@ import org.newdawn.slick.Image;
 
 
 public class Entity {
-	protected int positionX;
-	protected int positionY;
+	protected float x = 0;
+	protected float y = 0;
 	protected Image entityImage;
 	protected boolean isAlive;
-	public int speed;
+	protected float speed;
 	
 	
 	
 	//Setters & Getters of entity
-	public int getSpeed() {
+	public float getSpeed() {
 		return speed;
 	}
-	public void setSPEED(int _speed) {
-		speed = _speed;
+	public void setSPEED(int speed) {
+		this.speed = speed;
 	}
 	public boolean isIsAlive() {
 		return isAlive;
 	}
-	public void setIsAlive(boolean _isAlive) {
-		isAlive = _isAlive;
+	public void setIsAlive(boolean isAlive) {
+		this.isAlive = isAlive;
 	}
-	public int getPositionX() {
-		return positionX;
+	public float getX() {
+		return x;
 	}
-	public void setPositionX(int _positionX) {
-		positionX = _positionX;
+	public void setX(float x) {
+		this.x = x;
 	}
-	public int getPositionY() {
-		return positionY;
+	public float getY() {
+		return y;
 	}
-	public void setPositionY(int _positionY) {
-		positionY = _positionY;
+	public void setY(float y) {
+		this.y = y;
 	}
 	public Image getEntityImage() {
 		return entityImage;
 	}
-	public void setEntityImage(Image _entityImage) {
-		entityImage = _entityImage;
+	public void setEntityImage(Image entityImage) {
+		this.entityImage = entityImage;
 	}
 	
 	
