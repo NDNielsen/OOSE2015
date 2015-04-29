@@ -80,6 +80,7 @@ public class Game extends BasicGame
 			rightInput = false;
 		}
 		
+		
 		ball1.move();
 	}
 

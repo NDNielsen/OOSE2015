@@ -28,13 +28,13 @@ public class Entity {
 	public float getPositionX() {
 		return positionX;
 	}
-	public void setPositionX(int _positionX) {
+	public void setPositionX(float _positionX) {
 		positionX = _positionX;
 	}
 	public float getPositionY() {
 		return positionY;
 	}
-	public void setPositionY(int _positionY) {
+	public void setPositionY(float _positionY) {
 		positionY = _positionY;
 	}
 	public Image getEntityImage() {
