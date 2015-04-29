@@ -8,22 +8,20 @@ import org.newdawn.slick.SlickException;
 
 public class Ball extends Entity {
 	Shape ball = null;
-	public float posX;
-	public float posY;
 	
 	Ball(){
 		
-		ball = new Circle(posX, posY,10);
+		ball = new Circle(getX(), getY(),10);
 		
 		
 	}
-	void move() throws SlickException{
+	public void move() throws SlickException{
 		speed = 0.3F;
-		posX = posX + speed;
-		posY = posY + speed;
+		setX(getX()+speed);
+		setY(getY()+speed);
 	}
 	
-	void render(Graphics g, Color color)throws SlickException{
+	public void render(Graphics g, Color color)throws SlickException{
 		g.setColor(color);
 		g.fill(ball);
 		

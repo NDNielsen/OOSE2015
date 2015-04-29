@@ -42,8 +42,9 @@ public class Game extends BasicGame
 		}
 		
 		Player hero = new Player();
-		hero.setPositionX(50);
-		hero.setPositionY(50);
+		hero.setX(50);
+		hero.setY(50);
+		
 	}
 	
 	
@@ -58,7 +59,6 @@ public class Game extends BasicGame
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
 		ball1 = new Ball();
-
 	}
 	
 	
