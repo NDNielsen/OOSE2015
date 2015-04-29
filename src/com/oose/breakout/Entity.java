@@ -16,32 +16,32 @@ public class Entity {
 	public float getSpeed() {
 		return speed;
 	}
-	public void setSPEED(int _speed) {
-		speed = _speed;
+	public void setSPEED(int speed) {
+		this.speed = speed;
 	}
 	public boolean isIsAlive() {
 		return isAlive;
 	}
-	public void setIsAlive(boolean _isAlive) {
-		isAlive = _isAlive;
+	public void setIsAlive(boolean isAlive) {
+		this.isAlive = isAlive;
 	}
 	public float getPositionX() {
 		return positionX;
 	}
-	public void setPositionX(float _positionX) {
-		positionX = _positionX;
+	public void setPositionX(float positionX) {
+		this.positionX = positionX;
 	}
 	public float getPositionY() {
 		return positionY;
 	}
-	public void setPositionY(float _positionY) {
-		positionY = _positionY;
+	public void setPositionY(float positionY) {
+		this.positionY = positionY;
 	}
 	public Image getEntityImage() {
 		return entityImage;
 	}
-	public void setEntityImage(Image _entityImage) {
-		entityImage = _entityImage;
+	public void setEntityImage(Image entityImage) {
+		this.entityImage = entityImage;
 	}
 	
 	
