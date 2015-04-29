@@ -28,9 +28,6 @@ public class Game extends BasicGame
 		blocks = new Block[20];
 	}
 
-	
-	
-	
 	public static void main(String[] args)	{
 		try
 		{
@@ -50,8 +47,6 @@ public class Game extends BasicGame
 		hero.setY(50);
 		
 	}
-	
-	
 	
 	
 	@Override
@@ -83,7 +78,6 @@ public class Game extends BasicGame
 					}
 				}
 		
-
 		ball1 = new Ball();
 
 	}
@@ -110,10 +104,6 @@ public class Game extends BasicGame
 		
 		ball1.move();
 	}
-
-	
-	
-	
 	
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
@@ -137,16 +127,6 @@ public class Game extends BasicGame
 
 		//Check state of each block calling the isDestroyed method
 		//Draw the blocks
-		
-		
-		
-
-		
-		//Check state of each block calling the isDestroyed method
-		//Draw the blocks
 		ball1.render(g, Color.blue);
-
-		
 	}
-	
 }
