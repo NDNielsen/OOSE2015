@@ -8,12 +8,12 @@ public class Entity {
 	protected int positionY;
 	protected Image entityImage;
 	protected boolean isAlive;
-	public int speed;
+	public float speed;
 	
 	
 	
 	//Setters & Getters of entity
-	public int getSpeed() {
+	public float getSpeed() {
 		return speed;
 	}
 	public void setSPEED(int _speed) {

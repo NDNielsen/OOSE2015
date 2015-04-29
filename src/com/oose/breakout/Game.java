@@ -9,6 +9,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Color;
 
 public class Game extends BasicGame
 {
@@ -16,19 +17,17 @@ public class Game extends BasicGame
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
 	private Image ball = null, gameBackground = null, player = null; // block = null;
 	private boolean leftInput = false, rightInput = false;
+	Ball ball1 = new Ball(100,100);
 	
 	
-	
-	public Game(String gamename)
-	{
+	public Game(String gamename) {
 		super(gamename);
 	}
 
 	
 	
 	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args)	{
 		try
 		{
 			AppGameContainer appgc;
@@ -42,11 +41,9 @@ public class Game extends BasicGame
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-		
 		Player hero = new Player();
 		hero.setPositionX(50);
 		hero.setPositionY(50);
-		
 	}
 	
 	
@@ -81,6 +78,8 @@ public class Game extends BasicGame
 		} else {
 			rightInput = false;
 		}
+		
+		
 	}
 
 	
@@ -92,6 +91,7 @@ public class Game extends BasicGame
 	{
 		//Renders the images
 		gameBackground.draw();
+		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
 		player.draw(playerX, playerY);
 		ball.draw(290, 365);
@@ -105,6 +105,9 @@ public class Game extends BasicGame
 			g.drawString("Right!", 380, 200);
 			playerX = playerX + playerSpeed;
 		}
+		
+		ball1.render(g, Color.blue);
+		ball1.move();
 	}
 	
 }
