@@ -17,7 +17,7 @@ public class Game extends BasicGame
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
 	private Image ball = null, gameBackground = null, player = null; // block = null;
 	private boolean leftInput = false, rightInput = false;
-	Ball ball1 = new Ball(100,100);
+	Ball ball1 = null;
 	
 	
 	public Game(String gamename) {
@@ -57,6 +57,7 @@ public class Game extends BasicGame
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
+		ball1 = new Ball();
 
 	}
 	
@@ -79,7 +80,7 @@ public class Game extends BasicGame
 			rightInput = false;
 		}
 		
-		
+		ball1.move();
 	}
 
 	
@@ -107,7 +108,7 @@ public class Game extends BasicGame
 		}
 		
 		ball1.render(g, Color.blue);
-		ball1.move();
+		
 	}
 	
 }

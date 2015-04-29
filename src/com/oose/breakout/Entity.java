@@ -4,8 +4,8 @@ import org.newdawn.slick.Image;
 
 
 public class Entity {
-	protected int positionX;
-	protected int positionY;
+	protected float positionX;
+	protected float positionY;
 	protected Image entityImage;
 	protected boolean isAlive;
 	public float speed;
@@ -25,13 +25,13 @@ public class Entity {
 	public void setIsAlive(boolean _isAlive) {
 		isAlive = _isAlive;
 	}
-	public int getPositionX() {
+	public float getPositionX() {
 		return positionX;
 	}
 	public void setPositionX(int _positionX) {
 		positionX = _positionX;
 	}
-	public int getPositionY() {
+	public float getPositionY() {
 		return positionY;
 	}
 	public void setPositionY(int _positionY) {
