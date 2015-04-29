@@ -2,41 +2,37 @@ package com.oose.breakout;
 
 import javax.swing.ImageIcon;
 
+import com.sun.prism.Image;
+
 public class Block extends Entity{
 	
 	String blockImg = "../data/block.png";
-	Image blockIcon;	//
+	//String blockImg = "../src/com.oose.breakout/block.png";
+	Image blockIcon;	
 	
-	public int blockWidth;
-	public int blockHeight;
-	
-    public int getBlockWidth() {
-        return blockWidth;
-    }
-    public int getBlockHeight() {
-        return blockHeight;
-    }
+	public int blockWidth = 90;
+	public int blockHeight = 34;
     
 	boolean destroyed;
 
-	public int Block(int blockPosX, int blockPosY){
+	public Block(int blockPosX, int blockPosY){
 		
 		this.POSITION_X = blockPosX;
 		this.POSITION_Y = blockPosY;
 		
 		//Accesses image of block
 		ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
-		ENTITY_IMAGE  = blockIcon.getENTITY_IMAGE();
+		ENTITY_IMAGE  = blockIcon;
 		
-		blockWidth = ENTITY_IMAGE.getBlockWidth(null);
-		blockHeight = ENTITY_IMAGE.getBlockHeight(null);
+		blockWidth = ENTITY_IMAGE;
+		blockHeight = ENTITY_IMAGE;
 		
 		destroyed = false;
 		
 				
 		//return POSITION_X;
 	}
-	
+	//State of brick
 	public boolean isDestroyed()
 	{
 		return destroyed;
