@@ -43,10 +43,17 @@ public class Game extends BasicGame
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-		
-		Player hero = new Player();
-		hero.setPOSITION_X(50);
-		hero.setPOSITION_Y(50);
+//		Player hero = new Player();
+//		hero.setPOSITION_X(50);
+//		hero.setPOSITION_Y(50);
+//		hero.getPOSITION_X();
+//		hero.getPOSITION_Y();
+//		
+//		Player hero2 = new Player();
+//		hero2.setPOSITION_X(60);
+//		hero2.setPOSITION_Y(60);
+//		hero2.getPOSITION_X();
+//		hero2.getPOSITION_Y();
 		
 	}
 	
