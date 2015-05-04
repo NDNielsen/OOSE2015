@@ -74,7 +74,7 @@ public class Game extends BasicGame
 		ball1.render();
 		
 		for(int i = 0; i<blocks.length; i++){
-			g.drawImage(blocks[i].getImage(), blocks[i].getX(), blocks[i].getY(),blocks[i].getWidth(), blocks[i].getHeight(), this);
+			//g.drawImage(blocks[i].getImage(), blocks[i].getX(), blocks[i].getY(),blocks[i].getWidth(), blocks[i].getHeight(), this);
 		}
 	}
 	
