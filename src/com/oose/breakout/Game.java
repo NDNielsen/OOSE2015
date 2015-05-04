@@ -95,5 +95,11 @@ public class Game extends BasicGame
 			}
 		}
 	}
+	
+	public void CheckCollision(){
+		if(ball1.getRect().intersects(player1.getRect())){
+			
+		}
+	}
 
 }
