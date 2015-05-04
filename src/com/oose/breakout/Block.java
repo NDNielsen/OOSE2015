@@ -6,8 +6,7 @@ import org.newdawn.slick.SlickException;
 
 public class Block extends Entity{
 	
-	public int blockWidth = 90;
-	public int blockHeight = 34;
+
 	public Image block = null;
 	
 	
@@ -16,7 +15,8 @@ public class Block extends Entity{
 	
 			
 	public Block(int blockPosX, int blockPosY) throws SlickException{
-		
+		setWidth(90);
+		setHeight(34);
 	    
 		//Initializes block image
 		try {

@@ -7,7 +7,6 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
 
@@ -74,6 +73,9 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		ball1.render();
 		
+		for(int i = 0; i<blocks.length; i++){
+			g.drawImage(blocks[i].getImage(), blocks[i].getX(), blocks[i].getY(),blocks[i].getWidth(), blocks[i].getHeight(), this);
+		}
 	}
 	
 	public void CreateBlocks(Block blocks[]) throws SlickException
