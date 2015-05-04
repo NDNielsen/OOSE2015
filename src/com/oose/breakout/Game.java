@@ -19,6 +19,7 @@ public class Game extends BasicGame
 	
 	Player player1 = null;
 	Block blocks[] = new Block[25];
+	GUI onScreenGUI = null;
 	
 
 	
@@ -52,6 +53,7 @@ public class Game extends BasicGame
 		
 		player1 = new Player();
 		CreateBlocks(blocks);
+		onScreenGUI = new GUI();
 		
 
 	}
@@ -77,6 +79,7 @@ public class Game extends BasicGame
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
 		ball1.render();
+		onScreenGUI.DrawGUI(g);
 		
 		for(int i = 0; i<blocks.length; i++){
 			blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
