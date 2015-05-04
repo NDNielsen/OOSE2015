@@ -80,7 +80,6 @@ public class Game extends BasicGame
 		
 		for(int i = 0; i<blocks.length; i++){
 			blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
-			//g.drawImage(blocks[i].getImage(), blocks[i].getX(), blocks[i].getY(),blocks[i].getWidth(), blocks[i].getHeight(), this);
 		}
 	}
 	
@@ -100,18 +99,18 @@ public class Game extends BasicGame
 		if(ball1.getRect().intersects(player1.getRect())){
 			System.out.println("Collision Detected");
 			
-			int paddleLPos = (int)player1.getRect().getMinX();
-            int ballLPos = (int)ball1.getRect().getMinX();
+			int paddleX = (int)player1.getRect().getMinX();
+            int ballX = (int)ball1.getRect().getMinX();
 
-            int first = paddleLPos + 62;
-            int second = paddleLPos + 62;
+            int first = paddleX + 62;
+            int second = paddleX + 62;
 
-            if (ballLPos < first) {
+            if (ballX < first) {
                 ball1.setXD(-1*ball1.getSpeed());
                 ball1.setYD(-1*ball1.getSpeed());
             }
 
-            if (ballLPos > second) {
+            if (ballX> second) {
                 ball1.setXD(ball1.getSpeed());
                 ball1.setYD(-1*ball1.getSpeed());
             }
