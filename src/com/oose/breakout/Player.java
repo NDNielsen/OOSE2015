@@ -9,11 +9,15 @@ import org.newdawn.slick.SlickException;
 public class Player extends Entity{
 	protected byte lives = 3;
 	private boolean leftInput = false, rightInput = false;
+	public float spd;
 	String paddle = "data/paddle.png";
 	
 	public Player() throws SlickException{
 		StartPos();
-		setSpeed(0.1f);
+		spd = 0.1f;
+		setSpeed(spd);
+		setHeight(25);
+		setWidth(125);
 		Image = new Image(paddle);
 		
 	}
@@ -21,6 +25,20 @@ public class Player extends Entity{
 	//Needs to be placed in the Update in Game Class
 	public void Movement(GameContainer gc){
 		Input input = gc.getInput();
+		
+		//Checks whether the player is going out of screen region (Left side)
+		if(x <= 0 && input.isKeyDown(Input.KEY_LEFT)){
+			setSpeed(0);
+		} else {
+			setSpeed(spd);
+			
+			// Right side
+			if(x+width >= 640 && input.isKeyDown(Input.KEY_RIGHT)){
+				setSpeed(0);
+			} else {
+				setSpeed(spd);
+			}
+		}
 		
 		if(input.isKeyDown(Input.KEY_LEFT)){
 			leftInput = true;
@@ -50,13 +68,13 @@ public class Player extends Entity{
 	
 	//Needs to be placed in the Renderer in Game Class
 	public void Render(){
-		Image.draw(x, y);
+		Image.draw(x, y,width,height);
 	}
 	
 	//Sets the start position for the player
 	public void StartPos(){
 		x = 250;
-		y = 400;
+		y = 550;
 	}
 	
 	//Setters & Getters for Player
