@@ -57,6 +57,7 @@ public class Game extends BasicGame
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
+		
 
 		//Create 20 blocks
 				//int b = 0;
@@ -117,6 +118,8 @@ public class Game extends BasicGame
 
 		//Check state of each block calling the isDestroyed method
 		//Draw the blocks
+		
+		
 		ball1.render(g, Color.blue);
 	}
 }
