@@ -9,8 +9,7 @@ public class Block extends Entity{
 	public int blockWidth = 90;
 	public int blockHeight = 34;
 	public Image block = null;
-	Block blocks[];
-	blocks = new Block[25];
+	Block blocks[]= new Block[25];
     
 	public boolean emptyBlocks;
 	protected String blockImg= "data/block.png"; 
