@@ -15,10 +15,9 @@ public class Game extends BasicGame
 {
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
-	private Image ball = null, gameBackground = null, player = null;
+	private Image gameBackground = null;
 	Block blocks[];
-	private boolean leftInput = false, rightInput = false;
-	Ball ball1 = null;
+
 	
 	
 	public Game(String gamename) {
@@ -39,24 +38,15 @@ public class Game extends BasicGame
 		{
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		
 
-		Player hero = new Player();
-		hero.setX(50);
-		hero.setY(50);
-
-		
 	}
 	
 	
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
-		
-		//Initializes images.
-		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
-		player = new Image("data/paddle.png");
+		
 
 		//Create 20 blocks
 				//int b = 0;
@@ -68,25 +58,12 @@ public class Game extends BasicGame
 //					}
 //				}
 		
-		ball1 = new Ball();
+		//ball1 = new Ball();
 
 	}
 	
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
-		Input input = gc.getInput();
-		
-		if(input.isKeyDown(Input.KEY_LEFT)){
-			leftInput = true;
-		} else {
-			leftInput = false;
-		}
-		
-		if(input.isKeyDown(Input.KEY_RIGHT)){
-			rightInput = true;
-		} else {
-			rightInput = false;
-		}
 		
 		ball1.move();
 	}
@@ -101,15 +78,7 @@ public class Game extends BasicGame
 		player.draw(playerX, playerY);
 		ball.draw(290, 365);
 		
-		if(leftInput){
-			g.drawString("Left!", 200, 200);
-			playerX = playerX - playerSpeed;
-		}
 		
-		if(rightInput){
-			g.drawString("Right!", 380, 200);
-			playerX = playerX + playerSpeed;
-		}
 
 		//Check state of each block calling the isDestroyed method
 		//Draw the blocks
