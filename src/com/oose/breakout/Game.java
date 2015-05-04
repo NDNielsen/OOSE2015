@@ -63,7 +63,7 @@ public class Game extends BasicGame
 		ball1.move();
 
 		player1.Movement(gc);
-		
+		CheckCollision();
 		
 	}
 	
@@ -98,8 +98,13 @@ public class Game extends BasicGame
 	
 	public void CheckCollision(){
 		if(ball1.getRect().intersects(player1.getRect())){
-			
+			System.out.println("Collision Detected");
 		}
+		
+		if(ball1.getRect().intersects(player1.getRect())){
+			System.out.println("Collision Detected");
+		}
+		
 	}
 
 }
