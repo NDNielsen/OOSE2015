@@ -2,18 +2,18 @@ package com.oose.breakout;
 
 
 public class Player extends Entity{
-	protected byte LIVES = 3;
+	protected byte lives = 3;
 	
 	
 	
 	
 	//Setters & Getters for Player
-	public byte getLIVES() {
-		return LIVES;
+	public byte getLives() {
+		return lives;
 	}
 
-	public void setLIVES(byte lIVES) {
-		LIVES = lIVES;
+	public void setLIVES(byte _lives) {
+		lives = _lives;
 	}
 	
 	

@@ -9,27 +9,26 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Color;
 
 public class Game extends BasicGame
 {
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
-	private Image ball = null, gameBackground = null, player = null; // block = null;
-	public int blocksPerRow = 8; public int blockRows = 2; public int totalBlocks = 24;
+
+	private Image ball = null, gameBackground = null, player = null;
+
+	Block blocks[];
 	private boolean leftInput = false, rightInput = false;
+	Ball ball1 = null;
 	
 	
-	
-	public Game(String gamename)
-	{
+	public Game(String gamename) {
 		super(gamename);
+		blocks = new Block[20];
 	}
 
-	
-	
-	
-	public static void main(String[] args)
-	{
+	public static void main(String[] args)	{
 		try
 		{
 			AppGameContainer appgc;
@@ -43,21 +42,25 @@ public class Game extends BasicGame
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
-//		Player hero = new Player();
-//		hero.setPOSITION_X(50);
-//		hero.setPOSITION_Y(50);
-//		hero.getPOSITION_X();
-//		hero.getPOSITION_Y();
-//		
-//		Player hero2 = new Player();
-//		hero2.setPOSITION_X(60);
-//		hero2.setPOSITION_Y(60);
-//		hero2.getPOSITION_X();
-//		hero2.getPOSITION_Y();
+
+		Player hero = new Player();
+		hero.setPOSITION_X(50);
+		hero.setPOSITION_Y(50);
+		hero.getPOSITION_X();
+		hero.getPOSITION_Y();
+		
+		Player hero2 = new Player();
+		hero2.setPOSITION_X(60);
+		hero2.setPOSITION_Y(60);
+		hero2.getPOSITION_X();
+		hero2.getPOSITION_Y();
+
+		Player hero = new Player();
+		hero.setX(50);
+		hero.setY(50);
+
 		
 	}
-	
-	
 	
 	
 	@Override
@@ -68,6 +71,18 @@ public class Game extends BasicGame
 		ball = new Image("data/ball.png");
 		gameBackground = new Image("data/bg.png");
 		player = new Image("data/paddle.png");
+
+		//Create 20 blocks
+				int b = 0;
+				//Double for-loop, create 5 rows and 5 columns of blocks
+				for(int bRow = 0; bRow < 5; bRow++){ 
+					for(int bCol = 0; bCol < 5; bCol++){
+						blocks[b] = new Block(i *, j*) //placement of each block with x and y position
+						b++;
+					}
+				}
+		
+		ball1 = new Ball();
 
 	}
 	
@@ -89,17 +104,17 @@ public class Game extends BasicGame
 		} else {
 			rightInput = false;
 		}
+		
+		
+		ball1.move();
 	}
-
-	
-	
-	
 	
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		//Renders the images
 		gameBackground.draw();
+		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
 		player.draw(playerX, playerY);
 		ball.draw(290, 365);
@@ -113,6 +128,9 @@ public class Game extends BasicGame
 			g.drawString("Right!", 380, 200);
 			playerX = playerX + playerSpeed;
 		}
+
+		//Check state of each block calling the isDestroyed method
+		//Draw the blocks
+		ball1.render(g, Color.blue);
 	}
-	
 }
