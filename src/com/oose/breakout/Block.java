@@ -6,8 +6,8 @@ import com.sun.prism.Image;
 
 public class Block extends Entity{
 	
-	public String blockImg = "../data/block.png";
-	public String blockImg = "../src/com.oose.breakout/block.png";
+	//public String blockImg = "../data/block.png";
+	//public String blockImg = "../src/com.oose.breakout/block.png";
 	Image blockIcon;	
 	
 	public int blockWidth = 90;
@@ -21,12 +21,12 @@ public class Block extends Entity{
 		this.y = blockPosY;
 		
 		//Accesses image of block
-		ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
-		entityImage  = blockIcon;
+		//ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
+		//entityImage  = blockIcon;
 		
 		
-		blockWidth = entityImage;
-		blockHeight = entityImage;
+		//blockWidth = entityImage;
+		//blockHeight = entityImage;
 		
 		destroyed = false;
 		
@@ -46,10 +46,10 @@ public class Block extends Entity{
 	
 	public void CreateBlocks(){
 	
-	int blockStartX, blockStartY = blockOffset; 
-	for(int bRow = 0; bRow < blockRows; bRow++){
-		blockStartX = blockOffset;
+//	int blockStartX, blockStartY = blockOffset; 
+//	for(int bRow = 0; bRow < blockRows; bRow++){
+//		blockStartX = blockOffset;
 		
 	}
 }
-}end: class Block
+//end: class Block
