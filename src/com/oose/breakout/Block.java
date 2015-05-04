@@ -11,10 +11,12 @@ public class Block extends Entity{
 	public Image block = null;
     
 	boolean destroyed;
-
+	
+	//Initializes block image
+	block = new Image("data/block.png"); 
+			
 	public Block(int blockPosX, int blockPosY){
-		//Initializes block image
-		block = new Image("data/block.png");
+		
 		
 		this.x = blockPosX;
 		this.y = blockPosY;
