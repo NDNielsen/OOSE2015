@@ -12,7 +12,7 @@ public class Ball extends Entity {
 	protected String ballfile = "data/ball.png";
 
 	public Ball() throws SlickException{
-		setSpeed(4F);
+		setSpeed(8F);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		
