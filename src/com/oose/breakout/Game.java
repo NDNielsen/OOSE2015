@@ -18,6 +18,7 @@ public class Game extends BasicGame
 	
 	Ball ball1 = null;
 	Player player1 = null;
+	Block blocks[] = new Block[25];
 
 	
 	public Game(String gamename) {
@@ -48,7 +49,7 @@ public class Game extends BasicGame
 		gameBackground = new Image("data/bg.png");
 		ball1 = new Ball();
 		player1 = new Player();
-		
+		CreateBlocks(blocks);
 		
 
 	}
@@ -71,5 +72,17 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		ball1.render();
 		
+	}
+	
+	public void CreateBlocks(Block blocks[]) throws SlickException
+	{
+		int b = 0;
+		//Double for-loop, create 5 rows and 5 columns of blocks
+		for(int bRow = 0; bRow < 5; bRow++){ 
+			for(int bCol = 0; bCol < 5; bCol++){
+					blocks[b] = new Block(bCol * 40+30, bRow* 10+50); //placement of each block with x and y position
+					b++;
+			}
+		}
 	}
 }

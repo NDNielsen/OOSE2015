@@ -9,13 +9,15 @@ public class Block extends Entity{
 	public int blockWidth = 90;
 	public int blockHeight = 34;
 	public Image block = null;
-	Block blocks[]= new Block[25];
-    
+	
+	
 	public boolean emptyBlocks;
 	protected String blockImg= "data/block.png"; 
 	
 			
 	public Block(int blockPosX, int blockPosY) throws SlickException{
+		
+	    
 		//Initializes block image
 		try {
 			Image = new Image (blockImg);
@@ -43,15 +45,6 @@ public class Block extends Entity{
 		this.emptyBlocks = emptyBlocks;
 	}
 	
-	int b = 0;
-	//Double for-loop, create 5 rows and 5 columns of blocks
-	for(int bRow = 0; bRow < 5; bRow++){ 
-		for(int bCol = 0; bCol < 5; bCol++){
-				blocks[b] = new Block(bCol * 40+30, bRow* 10+50); //placement of each block with x and y position
-				b++;
-		}
-	}
-
 }//end: class Block
 
 
