@@ -78,5 +78,7 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		ball1.render(g, Color.blue);
 		
+		
+		
 	}
 }
