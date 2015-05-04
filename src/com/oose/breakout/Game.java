@@ -56,9 +56,11 @@ public class Game extends BasicGame
 	
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
-		
 		ball1.move();
 		player1.Movement(gc);
+		
+		gc.setMinimumLogicUpdateInterval(20);
+		gc.setMaximumLogicUpdateInterval(60);
 	}
 	
 	@Override
