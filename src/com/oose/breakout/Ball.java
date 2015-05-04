@@ -10,14 +10,16 @@ public class Ball extends Entity {
 	Shape ball = null;
 	private float yDirection;
 	private float xDirection;
+	public int r;
 	
 	public Ball(){
-		setSpeed(0.3F);
-		yDirection = -1;
-		xDirection = 1;
+		setSpeed(3F);
+		yDirection = -1*getSpeed();
+		xDirection = getSpeed();
 		
 		startPos();
-		ball = new Circle(x, y,10);
+		r = 10;
+		ball = new Circle(x, y, r);
 	}
 	
 	public void startPos(){
@@ -32,16 +34,16 @@ public class Ball extends Entity {
 		  x += xDirection;
 	      y += yDirection;
 
-	      if (x == 0) {
-	        setXD(1);
+	      if (x+r <= 0) {
+	        setXD(getSpeed());
 	      }
 
-	      if (x == 640) {
-	        setXD(-1);
+	      if (x+r >= 640) {
+	        setXD(-1*getSpeed());
 	      }
 
-	      if (y == 0) {
-	        setYD(1);
+	      if (y-r <= 0) {
+	        setYD(getSpeed());
 	      }
 	    }
 	

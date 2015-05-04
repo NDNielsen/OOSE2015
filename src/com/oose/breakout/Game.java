@@ -42,9 +42,23 @@ public class Game extends BasicGame
 			Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
+
+//		Player hero = new Player();
+////		hero.setPOSITION_X(50);
+////		hero.setPOSITION_Y(50);
+////		hero.getPOSITION_X();
+////		hero.getPOSITION_Y();
+//		
+//		Player hero2 = new Player();
+////		hero2.setPOSITION_X(60);
+////		hero2.setPOSITION_Y(60);
+////		hero2.getPOSITION_X();
+////		hero2.getPOSITION_Y();
+
 		Player hero = new Player();
 		hero.setX(50);
 		hero.setY(50);
+
 		
 	}
 	
@@ -60,21 +74,18 @@ public class Game extends BasicGame
 		
 
 		//Create 20 blocks
-				//int b = 0;
+				int b = 0;
 				//Double for-loop, create 5 rows and 5 columns of blocks
-				for(int bRow = 0; bRow < 5; bRow++){ 
-					for(int bCol = 0; bCol < 5; bCol++){
-						//blocks[b] = new Block(i *, j*) //placement of each block with x and y position
-						//b++;
-					}
-				}
+//				for(int bRow = 0; bRow < 5; bRow++){ 
+//					for(int bCol = 0; bCol < 5; bCol++){
+//						blocks[b] = new Block(i *, j*) //placement of each block with x and y position
+//						b++;
+//					}
+//				}
 		
 		ball1 = new Ball();
 
 	}
-	
-	
-	
 	
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {

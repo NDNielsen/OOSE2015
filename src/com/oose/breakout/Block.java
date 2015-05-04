@@ -20,7 +20,11 @@ public class Block extends Entity{
 		
 		this.x = blockPosX;
 		this.y = blockPosY;
+
+		//blockWidth = entityImage;
+		//blockHeight = entityImage;
 		
+
 		destroyed = false;
 	}
 	//State of block
@@ -34,4 +38,8 @@ public class Block extends Entity{
 		this.destroyed = destroyed;
 	}
 	
+
 }//end: class Block
+
+
+
