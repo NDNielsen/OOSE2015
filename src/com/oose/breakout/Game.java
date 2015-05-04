@@ -18,6 +18,7 @@ public class Game extends BasicGame
 	Ball ball1 = null;
 	Player player1 = null;
 	Block blocks[] = new Block[25];
+	
 
 	
 	public Game(String gamename) {
@@ -74,6 +75,7 @@ public class Game extends BasicGame
 		ball1.render();
 		
 		for(int i = 0; i<blocks.length; i++){
+			blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
 			//g.drawImage(blocks[i].getImage(), blocks[i].getX(), blocks[i].getY(),blocks[i].getWidth(), blocks[i].getHeight(), this);
 		}
 	}
@@ -84,7 +86,7 @@ public class Game extends BasicGame
 		//Double for-loop, create 5 rows and 5 columns of blocks
 		for(int bRow = 0; bRow < 5; bRow++){ 
 			for(int bCol = 0; bCol < 5; bCol++){
-					blocks[b] = new Block(bCol * 40+30, bRow* 10+50); //placement of each block with x and y position
+					blocks[b] = new Block(bCol * 95+82, bRow* 39+50); //placement of each block with x and y position
 					b++;
 			}
 		}

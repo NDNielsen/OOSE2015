@@ -15,14 +15,13 @@ public class Block extends Entity{
 	
 			
 	public Block(int blockPosX, int blockPosY) throws SlickException{
-		setWidth(90);
-		setHeight(34);
+		setWidth(95);
+		setHeight(39);
 	    
 		//Initializes block image
 		try {
 			Image = new Image (blockImg);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.x = blockPosX;
@@ -44,7 +43,6 @@ public class Block extends Entity{
 	{
 		this.emptyBlocks = emptyBlocks;
 	}
-	
 }//end: class Block
 
 
