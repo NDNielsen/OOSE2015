@@ -1,7 +1,5 @@
 package com.oose.breakout;
 
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
@@ -22,7 +20,7 @@ public class Ball extends Entity {
 		r = 20;
 		scale = 1;
 
-		entityImage = new Image(ballfile);
+		Image = new Image(ballfile);
 	}
 	
 	public void startPos(){
@@ -62,7 +60,7 @@ public class Ball extends Entity {
 	      yDirection = y;
 	    }
 	
-	public void render(Graphics g, Color color)throws SlickException{
-		entityImage.draw(x,y,r*scale,r*scale);
+	public void render()throws SlickException{
+		Image.draw(x,y,r*scale,r*scale);
 	}
 }
