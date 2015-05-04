@@ -1,6 +1,7 @@
 package com.oose.breakout;
 
 import org.newdawn.slick.Image;
+import org.newdawn.slick.geom.Rectangle;
 
 
 public class Entity {
@@ -53,7 +54,10 @@ public class Entity {
 		return Image;
 	}
 	
-	
+	Rectangle getRect()
+    {
+      return new Rectangle(x, y, Image.getWidth(), Image.getHeight());
+    }
 	
 //	public void setEntityImage(Image entityImage) {
 //		this.entityImage = entityImage;
