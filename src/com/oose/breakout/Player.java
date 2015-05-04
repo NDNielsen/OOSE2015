@@ -48,10 +48,12 @@ public class Player extends Entity{
 		}
 	}
 	
+	//Needs to be placed in the Renderer in Game Class
 	public void Render(){
 		Image.draw(x, y);
 	}
 	
+	//Sets the start position for the player
 	public void StartPos(){
 		x = 250;
 		y = 400;
