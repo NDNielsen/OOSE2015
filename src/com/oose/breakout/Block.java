@@ -1,55 +1,49 @@
 package com.oose.breakout;
 
-import javax.swing.ImageIcon;
 
-import com.sun.prism.Image;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
 public class Block extends Entity{
 	
-	//public String blockImg = "../data/block.png";
-	//public String blockImg = "../src/com.oose.breakout/block.png";
-	Image blockIcon;	
-	
 	public int blockWidth = 90;
 	public int blockHeight = 34;
+	public Image block = null;
     
-	boolean destroyed;
-
-	public Block(int blockPosX, int blockPosY){
-		
+	public boolean emptyBlocks;
+	protected String blockImg= "data/block.png"; 
+	
+			
+	public Block(int blockPosX, int blockPosY) throws SlickException{
+		//Initializes block image
+		try {
+			Image = new Image (blockImg);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.x = blockPosX;
 		this.y = blockPosY;
-		
-		//Accesses image of block
-		//ImageIcon blockIcon = new ImageIcon(this.getClass().getResource(blockImg));
-		//entityImage  = blockIcon;
-		
-		
+
 		//blockWidth = entityImage;
 		//blockHeight = entityImage;
 		
-		destroyed = false;
-		
-				
-		//return POSITION_X;
+
+		emptyBlocks = false;
 	}
-	//State of brick
+	//State of block
 	public boolean isDestroyed()
 	{
-		return destroyed;
+		return emptyBlocks;
 	}
 	
-	public void setDestroyed(boolean destroyed)
+	public void setDestroyed(boolean emptyBlocks)
 	{
-		this.destroyed = destroyed;
+		this.emptyBlocks = emptyBlocks;
 	}
 	
-	public void CreateBlocks(){
-	
-//	int blockStartX, blockStartY = blockOffset; 
-//	for(int bRow = 0; bRow < blockRows; bRow++){
-//		blockStartX = blockOffset;
-		
-	}
-}
-//end: class Block
+
+}//end: class Block
+
+
+
