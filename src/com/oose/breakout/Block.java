@@ -2,7 +2,8 @@ package com.oose.breakout;
 
 import javax.swing.ImageIcon;
 
-import com.sun.prism.Image;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
 public class Block extends Entity{
 	
@@ -10,14 +11,20 @@ public class Block extends Entity{
 	public int blockHeight = 34;
 	public Image block = null;
     
-	boolean emptyBlocks;
+	public boolean emptyBlocks;
+	protected String blockImg= "data/block.png"; 
 	
-	//Initializes block image
-	block = new Image("data/block.png"); 
+	
+	
 			
-	public Block(int blockPosX, int blockPosY){
-		
-		
+	public Block(int blockPosX, int blockPosY) throws SlickException{
+		//Initializes block image
+		try {
+			entityImage = new Image (blockImg);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.x = blockPosX;
 		this.y = blockPosY;
 
