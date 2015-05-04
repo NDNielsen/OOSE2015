@@ -22,7 +22,7 @@ public class Game extends BasicGame
 	
 	public Game(String gamename) {
 		super(gamename);
-		blocks = new Block[25];
+		blocks = new Block[20];
 	}
 
 	public static void main(String[] args)	{
