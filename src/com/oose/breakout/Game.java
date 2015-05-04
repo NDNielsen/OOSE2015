@@ -16,6 +16,7 @@ public class Game extends BasicGame
 	private Image gameBackground = null;
 	
 	Ball ball1 = null;
+	
 	Player player1 = null;
 	Block blocks[] = new Block[25];
 	
@@ -47,7 +48,8 @@ public class Game extends BasicGame
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg.png");
-		ball1 = new Ball();
+		ball1 = new Ball(200,200);
+		
 		player1 = new Player();
 		CreateBlocks(blocks);
 		
@@ -59,6 +61,7 @@ public class Game extends BasicGame
 		gc.setMinimumLogicUpdateInterval(20);
 		gc.setMaximumLogicUpdateInterval(60);
 		ball1.move();
+
 		player1.Movement(gc);
 		
 		

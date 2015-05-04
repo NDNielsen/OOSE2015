@@ -11,21 +11,21 @@ public class Ball extends Entity {
 	
 	protected String ballfile = "data/ball.png";
 
-	public Ball() throws SlickException{
+	public Ball(int _x, int _y) throws SlickException{
 		setSpeed(8F);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		
-		startPos();
+		startPos(_x,_y);
 		r = 20;
 		scale = 1;
 
 		Image = new Image(ballfile);
 	}
 	
-	public void startPos(){
-		x = 200;
-		y = 200;
+	public void startPos(int _x, int _y){
+		x = _x;
+		y = _y;
 	}
 	
 	public void move() throws SlickException{		  
