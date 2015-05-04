@@ -26,11 +26,13 @@ public class Player extends Entity{
 	public void Movement(GameContainer gc){
 		Input input = gc.getInput();
 		
+		//Checks whether the player is going out of screen region (Left side)
 		if(x <= 0 && input.isKeyDown(Input.KEY_LEFT)){
 			setSpeed(0);
 		} else {
 			setSpeed(spd);
-		
+			
+			// Right side
 			if(x+width >= 640 && input.isKeyDown(Input.KEY_RIGHT)){
 				setSpeed(0);
 			} else {
