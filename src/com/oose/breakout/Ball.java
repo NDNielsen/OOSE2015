@@ -59,6 +59,11 @@ public class Ball extends Entity {
 	 public void setYD(float y){
 	      yDirection = y;
 	    }
+	 
+	 public float getYD()
+	    {
+	      return yDirection;
+	    }
 	
 	public void render()throws SlickException{
 		Image.draw(x,y,r*scale,r*scale);

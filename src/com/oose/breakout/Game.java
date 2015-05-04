@@ -99,6 +99,22 @@ public class Game extends BasicGame
 	public void CheckCollision(){
 		if(ball1.getRect().intersects(player1.getRect())){
 			System.out.println("Collision Detected");
+			
+			int paddleLPos = (int)player1.getRect().getMinX();
+            int ballLPos = (int)ball1.getRect().getMinX();
+
+            int first = paddleLPos + 62;
+            int second = paddleLPos + 62;
+
+            if (ballLPos < first) {
+                ball1.setXD(-1*ball1.getSpeed());
+                ball1.setYD(-1*ball1.getSpeed());
+            }
+
+            if (ballLPos > second) {
+                ball1.setXD(ball1.getSpeed());
+                ball1.setYD(-1*ball1.getSpeed());
+            }
 		}
 		
 		if(ball1.getRect().intersects(player1.getRect())){
