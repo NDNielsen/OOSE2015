@@ -15,9 +15,7 @@ public class Game extends BasicGame
 {
 	static int sHeight = 640, sWidth = 720; 
 	public float playerX = 250, playerY = 400, playerSpeed = 0.1f;
-
 	private Image ball = null, gameBackground = null, player = null;
-
 	Block blocks[];
 	private boolean leftInput = false, rightInput = false;
 	Ball ball1 = null;
@@ -43,18 +41,6 @@ public class Game extends BasicGame
 		}
 		
 
-//		Player hero = new Player();
-////		hero.setPOSITION_X(50);
-////		hero.setPOSITION_Y(50);
-////		hero.getPOSITION_X();
-////		hero.getPOSITION_Y();
-//		
-//		Player hero2 = new Player();
-////		hero2.setPOSITION_X(60);
-////		hero2.setPOSITION_Y(60);
-////		hero2.getPOSITION_X();
-////		hero2.getPOSITION_Y();
-
 		Player hero = new Player();
 		hero.setX(50);
 		hero.setY(50);
@@ -73,7 +59,7 @@ public class Game extends BasicGame
 		player = new Image("data/paddle.png");
 
 		//Create 20 blocks
-				int b = 0;
+				//int b = 0;
 				//Double for-loop, create 5 rows and 5 columns of blocks
 //				for(int bRow = 0; bRow < 5; bRow++){ 
 //					for(int bCol = 0; bCol < 5; bCol++){
@@ -101,7 +87,6 @@ public class Game extends BasicGame
 		} else {
 			rightInput = false;
 		}
-		
 		
 		ball1.move();
 	}
