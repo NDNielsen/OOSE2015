@@ -10,7 +10,7 @@ public class Block extends Entity{
 	public int blockHeight = 34;
 	public Image block = null;
     
-	boolean destroyed;
+	boolean emptyBlocks;
 	
 	//Initializes block image
 	block = new Image("data/block.png"); 
@@ -25,17 +25,17 @@ public class Block extends Entity{
 		//blockHeight = entityImage;
 		
 
-		destroyed = false;
+		emptyBlocks = false;
 	}
 	//State of block
 	public boolean isDestroyed()
 	{
-		return destroyed;
+		return emptyBlocks;
 	}
 	
-	public void setDestroyed(boolean destroyed)
+	public void setDestroyed(boolean emptyBlocks)
 	{
-		this.destroyed = destroyed;
+		this.emptyBlocks = emptyBlocks;
 	}
 	
 
