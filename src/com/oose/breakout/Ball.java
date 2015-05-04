@@ -1,25 +1,26 @@
 package com.oose.breakout;
 
-import org.newdawn.slick.Color;
-import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class Ball extends Entity {
-	Shape ball = null;
 	private float yDirection;
 	private float xDirection;
 	public int r;
+	public int scale;
 	
-	public Ball(){
-		setSpeed(3F);
+	protected String ballfile = "data/ball.png";
+
+	public Ball() throws SlickException{
+		setSpeed(4F);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		
 		startPos();
-		r = 10;
-		ball = new Circle(x, y, r);
+		r = 20;
+		scale = 1;
+
+		Image = new Image(ballfile);
 	}
 	
 	public void startPos(){
@@ -27,24 +28,27 @@ public class Ball extends Entity {
 		y = 200;
 	}
 	
-	public void move() throws SlickException{
-		  ball.setCenterX(x);
-		  ball.setCenterY(y);
-		  
+	public void move() throws SlickException{		  
 		  x += xDirection;
 	      y += yDirection;
 
-	      if (x+r <= 0) {
+	      if (x <= 0) {
 	        setXD(getSpeed());
 	      }
 
-	      if (x+r >= 640) {
+	      if (x+r*scale >= 640) {
 	        setXD(-1*getSpeed());
 	      }
 
-	      if (y-r <= 0) {
+	      if (y <= 0) {
 	        setYD(getSpeed());
 	      }
+	      
+	      //temporary function
+	      if (y >= 700) {
+		        setYD(-1*getSpeed());
+		      }
+	      //temporary function
 	    }
 	
 	
@@ -56,8 +60,7 @@ public class Ball extends Entity {
 	      yDirection = y;
 	    }
 	
-	public void render(Graphics g, Color color)throws SlickException{
-		g.setColor(color);
-		g.fill(ball);
+	public void render()throws SlickException{
+		Image.draw(x,y,r*scale,r*scale);
 	}
 }

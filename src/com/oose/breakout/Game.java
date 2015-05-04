@@ -76,7 +76,7 @@ public class Game extends BasicGame
 		player1.Render();
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
-		ball1.render(g, Color.blue);
+		ball1.render();
 		
 		
 		
