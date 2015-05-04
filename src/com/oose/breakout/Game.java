@@ -50,7 +50,7 @@ public class Game extends BasicGame
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg.png");
-		ball1 = new Ball(200,200);
+		ball1 = new Ball(350,150);
 		
 		player1 = new Player();
 		CreateBlocks(blocks);
