@@ -10,7 +10,7 @@ public class Block extends Entity{
 	public Image block = null;
 	
 	
-	public boolean emptyBlocks;
+	public boolean shattered;
 	protected String blockImg= "data/block.png"; 
 	
 			
@@ -31,17 +31,17 @@ public class Block extends Entity{
 		//blockHeight = entityImage;
 		
 
-		emptyBlocks = false;
+		shattered = false;
 	}
 	//State of block
-	public boolean isDestroyed()
+	public boolean isShattered()
 	{
-		return emptyBlocks;
+		return shattered;
 	}
 	
-	public void setDestroyed(boolean emptyBlocks)
+	public void setShattered(boolean shattered)
 	{
-		this.emptyBlocks = emptyBlocks;
+		this.shattered = shattered;
 	}
 }//end: class Block
 
