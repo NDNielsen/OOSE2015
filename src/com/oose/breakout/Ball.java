@@ -13,6 +13,7 @@ public class Ball extends Entity {
 
 	public Ball(int _x, int _y) throws SlickException{
 		setSpeed(8F);
+		setIsAlive(true);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		
@@ -23,9 +24,9 @@ public class Ball extends Entity {
 		Image = new Image(ballfile);
 	}
 	
-	public void startPos(int _x, int _y){
-		x = _x;
-		y = _y;
+	public void startPos(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 	
 	public void move() throws SlickException{		  

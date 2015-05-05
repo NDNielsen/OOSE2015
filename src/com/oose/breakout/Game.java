@@ -21,6 +21,7 @@ public class Game extends BasicGame
 	Player player1 = null;
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
+	public int score = 0;
 	
 
 	
@@ -50,7 +51,7 @@ public class Game extends BasicGame
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg.png");
-		ball1 = new Ball(350,150);
+		ball1 = new Ball(320,500);
 		
 		player1 = new Player();
 		CreateBlocks(blocks);
@@ -67,6 +68,7 @@ public class Game extends BasicGame
 
 		player1.Movement(gc);
 		CheckCollision();
+		ballDeath();
 		
 	}
 	
@@ -81,6 +83,7 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		ball1.render();
 		onScreenGUI.DrawGUI(g);
+		g.drawString("Score " + score, 500, 0);	//Draw increment of score
 		
 		for(int i = 0; i<blocks.length; i++){
 			if(!blocks[i].isShattered()){
@@ -100,6 +103,16 @@ public class Game extends BasicGame
 			}														  //Y position is placed with height of block: 34.
 		}															  //The value 95 is spacing of each row from the vertical screen borders.
 	}																  //The value 50 is offset spacing for each column from top.
+	
+	public void ballDeath(){
+		if(ball1.getY() > player1.getY()+50){
+			onScreenGUI.setLives(onScreenGUI.getLives()-1);
+			ball1.startPos(320, 500);
+			ball1.setIsAlive(false);
+//			ball1.setYD(-1*ball1.getSpeed());
+		}
+			System.out.println(ball1.getY() + " " + player1.getY());
+	}
 	
 	public void CheckCollision(){
 		if(ball1.getRect().intersects(player1.getRect())){
@@ -138,18 +151,22 @@ public class Game extends BasicGame
                 if (!blocks[i].isShattered()) {
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed());
+                        score +=50; 						//Increase the score by 50.
                     }
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
                         ball1.setXD(ball1.getSpeed());
+                        score +=50;
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
                         ball1.setYD(ball1.getSpeed());
+                        score +=50;
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
                         ball1.setYD(-1*ball1.getSpeed());
+                        score +=50;
                     }
 
                     blocks[i].setShattered(true);
@@ -158,6 +175,6 @@ public class Game extends BasicGame
 				System.out.println("Collide with block");
 			}
 		}
+	
 	}
-
 }
