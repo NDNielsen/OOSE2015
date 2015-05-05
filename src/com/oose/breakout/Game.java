@@ -19,15 +19,22 @@ public class Game extends BasicGame
 	private Image gameBackground = null;
 	Input input = null;
 	Ball ball1 = null;
+	int startX = 250, startY = 500;
 	Player player1 = null;
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
-	public int score = 0;
+	int score;
+	int level;;
 	
 	Sound backgroundMusic = null;
 	Sound explosion = null;
 	Sound collision = null;
 	Sound levelUp = null;
+	Sound release = null;
+	Sound hurt = null;
+	Sound gameOver = null;
+	
+	static AppGameContainer appgc;
 	
 	public Game(String gamename) {
 		super(gamename);
@@ -37,7 +44,7 @@ public class Game extends BasicGame
 	public static void main(String[] args)	{
 		try
 		{
-			AppGameContainer appgc;
+			
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
 			
@@ -58,7 +65,7 @@ public class Game extends BasicGame
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg2.png");
-		ball1 = new Ball(320,500);
+		ball1 = new Ball(startX,startY);
 		input = gc.getInput();
 		player1 = new Player();
 		CreateBlocks(blocks);
@@ -67,8 +74,13 @@ public class Game extends BasicGame
 		explosion = new Sound("data/explosion.ogg");
 		collision = new Sound("data/Collision.ogg");
 		levelUp = new Sound("data/levelUp.ogg");
-		backgroundMusic.loop(1f, 0.2f);
+		release = new Sound("data/release.ogg");
+		hurt = new Sound("data/hurt.ogg");
+		gameOver = new Sound("data/gameover.ogg");
 		
+		backgroundMusic.loop(1f, 0.2f);
+		score = 0;
+		level = 1;
 	}
 	
 	@Override
@@ -80,7 +92,9 @@ public class Game extends BasicGame
 		player1.Movement(gc);
 		CheckCollision();
 		ballDeath();
-		
+		gameOver();
+		IfEmptyBlocks();
+		System.out.println(ball1.getSpeed());
 	}
 	
 	@Override
@@ -92,13 +106,20 @@ public class Game extends BasicGame
 		player1.Render();
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
-		ball1.render();
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
+		g.drawString("Level " + level, 400, 0);	//Draw increment of score
 		
-		if(ball1.getIsAlive() == false){
-			
+		if(onScreenGUI.getLives() != 0)
+			ball1.render();
+		
+		if(ball1.getIsAlive() == false && onScreenGUI.getLives() != 0){
 			g.drawString("Press SPACE to launch", player1.getX()-30, 600);
+		}
+		
+		if(onScreenGUI.getLives() == 0){
+			g.setColor(Color.red);
+			g.drawString("GAME OVER! PRESS SPACE TO RETRY", player1.getX()-70, 600);
 		}
 		
 		for(int i = 0; i<blocks.length; i++){
@@ -107,6 +128,20 @@ public class Game extends BasicGame
 			}
 		}
 	}
+	
+	public void gameOver() throws SlickException{
+		if(onScreenGUI.getLives() == 0){
+			if(!gameOver.playing()){
+				gameOver.play();
+				gameOver.play(0,0);
+			}
+			if(input.isKeyDown(Input.KEY_SPACE)){
+				appgc.reinit();
+				
+			}
+		}
+	}
+		
 	
 	public void CreateBlocks(Block blocks[]) throws SlickException
 	{
@@ -123,8 +158,9 @@ public class Game extends BasicGame
 	public void ballDeath(){
 		if(ball1.getY() > player1.getY()+50){
 			onScreenGUI.setLives(onScreenGUI.getLives()-1);
-			ball1.startPos(320, 500);
+			ball1.startPos(startX, startY);
 			ball1.setIsAlive(false);
+			hurt.play();
 //			ball1.setYD(-1*ball1.getSpeed());
 		}
 		
@@ -136,7 +172,8 @@ public class Game extends BasicGame
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8F);
+			ball1.setSpeed(8F * level);
+			release.play();
 		}
 	}
 	
@@ -202,10 +239,28 @@ public class Game extends BasicGame
                     }
 
                     blocks[i].setShattered(true);
+                    
                 }
                 
 				System.out.println("Collide with block");
 			}
 		}
+
 	}
+	
+	public void IfEmptyBlocks() throws SlickException
+	{	
+		for(int l = 0, j = 0; l<25; l++){
+			if(blocks[l].isShattered()){
+				j ++;
+			}
+			if(j == 25 ){
+				j = 0;
+				level +=1;
+				ball1.setIsAlive(false);
+				CreateBlocks(blocks);
+				levelUp.play();
+			}
+		}
+	}//end:IfEmptyBlocks
 }

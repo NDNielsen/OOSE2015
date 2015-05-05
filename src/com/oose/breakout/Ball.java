@@ -50,12 +50,6 @@ public class Ball extends Entity {
 	        setYD(getSpeed());
 	        wallHit.play();
 	      }
-	      
-	      //temporary function
-	      if (y >= 700) {
-		        setYD(-1*getSpeed());
-		      }
-	      //temporary function
 	    }
 	
 	
