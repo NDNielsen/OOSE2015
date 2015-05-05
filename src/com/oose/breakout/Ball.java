@@ -13,7 +13,7 @@ public class Ball extends Entity {
 
 	public Ball(int _x, int _y) throws SlickException{
 		setSpeed(8F);
-		setIsAlive(true);
+		setIsAlive(false);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		

@@ -7,6 +7,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.geom.Point;
@@ -15,9 +16,8 @@ public class Game extends BasicGame
 {
 	static int sHeight = 640, sWidth = 720; 
 	private Image gameBackground = null;
-	
+	Input input = null;
 	Ball ball1 = null;
-	
 	Player player1 = null;
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
@@ -52,12 +52,10 @@ public class Game extends BasicGame
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg2.png");
 		ball1 = new Ball(320,500);
-
+		input = gc.getInput();
 		player1 = new Player();
 		CreateBlocks(blocks);
 		onScreenGUI = new GUI();
-		
-
 	}
 	
 	@Override
@@ -85,6 +83,11 @@ public class Game extends BasicGame
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
 		
+		if(ball1.getIsAlive() == false){
+			
+			g.drawString("Press SPACE to launch", player1.getX()-30, 600);
+		}
+		
 		for(int i = 0; i<blocks.length; i++){
 			if(!blocks[i].isShattered()){
 				blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
@@ -111,7 +114,17 @@ public class Game extends BasicGame
 			ball1.setIsAlive(false);
 //			ball1.setYD(-1*ball1.getSpeed());
 		}
-			System.out.println(ball1.getY() + " " + player1.getY());
+		
+		if(ball1.getIsAlive() == false){
+			ball1.setSpeed(0);
+			ball1.setX(player1.getX()+52);
+			ball1.setY(player1.getY()-30);
+		}
+		
+		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
+			ball1.setIsAlive(true);
+			ball1.setSpeed(8F);
+		}
 	}
 	
 	public void CheckCollision(){
