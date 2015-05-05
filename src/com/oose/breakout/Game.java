@@ -24,6 +24,7 @@ public class Game extends BasicGame
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
 	int score;
+	int level;;
 	
 	Sound backgroundMusic = null;
 	Sound explosion = null;
@@ -72,7 +73,7 @@ public class Game extends BasicGame
 		levelUp = new Sound("data/levelUp.ogg");
 		backgroundMusic.loop(1f, 0.2f);
 		score = 0;
-		
+		level = 1;
 	}
 	
 	@Override
@@ -85,7 +86,7 @@ public class Game extends BasicGame
 		CheckCollision();
 		ballDeath();
 		gameOver();
-		
+		IfEmptyBlocks();
 	}
 	
 	@Override
@@ -99,17 +100,18 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
+		g.drawString("Level " + level, 400, 0);	//Draw increment of score
 		
 		if(onScreenGUI.getLives() != 0)
 			ball1.render();
 		
-		if(ball1.getIsAlive() == false){
+		if(ball1.getIsAlive() == false && onScreenGUI.getLives() != 0){
 			g.drawString("Press SPACE to launch", player1.getX()-30, 600);
 		}
 		
 		if(onScreenGUI.getLives() == 0){
 			g.setColor(Color.red);
-			g.drawString("GAME OVER! PRESS SPACE TO RETRY", 100, 400);
+			g.drawString("GAME OVER! PRESS SPACE TO RETRY", player1.getX()-70, 600);
 		}
 		
 		for(int i = 0; i<blocks.length; i++){
@@ -220,11 +222,27 @@ public class Game extends BasicGame
                     }
 
                     blocks[i].setShattered(true);
+                    
                 }
                 
 				System.out.println("Collide with block");
 			}
 		}
-	
+
 	}
+	
+	public void IfEmptyBlocks() throws SlickException
+	{	
+		for(int l = 0, j = 0; l<25; l++){
+			if(blocks[l].isShattered()){
+				j ++;
+			}
+			if(j == 25 ){
+				j = 0;
+				level +=1;
+				ball1.setIsAlive(false);
+				CreateBlocks(blocks);
+			}
+		}
+	}//end:IfEmptyBlocks
 }
