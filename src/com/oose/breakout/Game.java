@@ -108,7 +108,7 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
-		g.drawString("Level " + level, 400, 0);	//Draw increment of score
+		g.drawString("Level " + level, 400, 0);	//Draw increment of level
 		
 		if(onScreenGUI.getLives() != 0)
 			ball1.render();
