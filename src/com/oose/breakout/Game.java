@@ -10,6 +10,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Color;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Point;
 
 public class Game extends BasicGame
@@ -23,7 +24,10 @@ public class Game extends BasicGame
 	GUI onScreenGUI = null;
 	public int score = 0;
 	
-
+	Sound backgroundMusic = null;
+	Sound explosion = null;
+	Sound collision = null;
+	Sound levelUp = null;
 	
 	public Game(String gamename) {
 		super(gamename);
@@ -36,6 +40,9 @@ public class Game extends BasicGame
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
+			
+			
+
 			
 			appgc.start();
 		}
@@ -56,6 +63,12 @@ public class Game extends BasicGame
 		player1 = new Player();
 		CreateBlocks(blocks);
 		onScreenGUI = new GUI();
+		backgroundMusic = new Sound("data/music3.ogg");
+		explosion = new Sound("data/explosion.ogg");
+		collision = new Sound("data/Collision.ogg");
+		levelUp = new Sound("data/levelUp.ogg");
+		backgroundMusic.loop(1f, 0.2f);
+		
 	}
 	
 	@Override
@@ -118,7 +131,7 @@ public class Game extends BasicGame
 		if(ball1.getIsAlive() == false){
 			ball1.setSpeed(0);
 			ball1.setX(player1.getX()+52);
-			ball1.setY(player1.getY()-30);
+			ball1.setY(player1.getY()-40);
 		}
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
@@ -140,11 +153,13 @@ public class Game extends BasicGame
             if (ballX < first) {
                 ball1.setXD(-1*ball1.getSpeed());
                 ball1.setYD(-1*ball1.getSpeed());
+                collision.play();
             }
 
             if (ballX> second) {
                 ball1.setXD(ball1.getSpeed());
                 ball1.setYD(-1*ball1.getSpeed());
+                collision.play();
             }
 		}
 		
@@ -165,21 +180,25 @@ public class Game extends BasicGame
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed());
                         score +=50; 						//Increase the score by 50.
+                        explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
                         ball1.setXD(ball1.getSpeed());
                         score +=50;
+                        explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
                         ball1.setYD(ball1.getSpeed());
                         score +=50;
+                        explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
                         ball1.setYD(-1*ball1.getSpeed());
                         score +=50;
+                        explosion.play();
                     }
 
                     blocks[i].setShattered(true);
