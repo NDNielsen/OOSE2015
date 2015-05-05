@@ -196,6 +196,5 @@ public class Game extends BasicGame
 				System.out.println("Collide with block");
 			}
 		}
-	
 	}
 }
