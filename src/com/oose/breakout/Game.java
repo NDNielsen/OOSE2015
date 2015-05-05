@@ -23,16 +23,17 @@ public class Game extends BasicGame
 	Player player1 = null;
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
+	float vol;
 	int score;
 	int level;;
 	
-	Sound backgroundMusic = null;
-	Sound explosion = null;
-	Sound collision = null;
-	Sound levelUp = null;
-	Sound release = null;
-	Sound hurt = null;
-	Sound gameOver = null;
+	static Sound backgroundMusic = null;
+	static Sound explosion = null;
+	static Sound collision = null;
+	static Sound levelUp = null;
+	static Sound release = null;
+	static Sound hurt = null;
+	static Sound gameOver = null;
 	
 	static AppGameContainer appgc;
 	
@@ -44,12 +45,17 @@ public class Game extends BasicGame
 	public static void main(String[] args)	{
 		try
 		{
+			backgroundMusic = new Sound("data/music3.ogg");
+			explosion = new Sound("data/explosion.ogg");
+			collision = new Sound("data/Collision.ogg");
+			levelUp = new Sound("data/levelUp.ogg");
+			release = new Sound("data/release.ogg");
+			hurt = new Sound("data/hurt.ogg");
+			gameOver = new Sound("data/gameover.ogg");
+			backgroundMusic.loop(1f, 0.2f);
 			
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
-			
-			
-
 			
 			appgc.start();
 		}
@@ -70,15 +76,9 @@ public class Game extends BasicGame
 		player1 = new Player();
 		CreateBlocks(blocks);
 		onScreenGUI = new GUI();
-		backgroundMusic = new Sound("data/music3.ogg");
-		explosion = new Sound("data/explosion.ogg");
-		collision = new Sound("data/Collision.ogg");
-		levelUp = new Sound("data/levelUp.ogg");
-		release = new Sound("data/release.ogg");
-		hurt = new Sound("data/hurt.ogg");
-		gameOver = new Sound("data/gameover.ogg");
 		
-		backgroundMusic.loop(1f, 0.2f);
+		vol = 0.2f;
+		
 		score = 0;
 		level = 1;
 	}
@@ -130,14 +130,16 @@ public class Game extends BasicGame
 	}
 	
 	public void gameOver() throws SlickException{
+		
 		if(onScreenGUI.getLives() == 0){
 			if(!gameOver.playing()){
-				gameOver.play();
-				gameOver.play(0,0);
+				gameOver.play(1,vol);
+				backgroundMusic.stop();
+				vol = 0;
 			}
 			if(input.isKeyDown(Input.KEY_SPACE)){
+				backgroundMusic.loop(1,0.2f);
 				appgc.reinit();
-				
 			}
 		}
 	}
@@ -161,7 +163,6 @@ public class Game extends BasicGame
 			ball1.startPos(startX, startY);
 			ball1.setIsAlive(false);
 			hurt.play();
-//			ball1.setYD(-1*ball1.getSpeed());
 		}
 		
 		if(ball1.getIsAlive() == false){
@@ -172,7 +173,7 @@ public class Game extends BasicGame
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8F * level);
+			ball1.setSpeed(8F*level);
 			release.play();
 		}
 	}
