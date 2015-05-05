@@ -83,6 +83,7 @@ public class Game extends BasicGame
 		player1.Movement(gc);
 		CheckCollision();
 		ballDeath();
+		IfEmptyBlocks();
 	}
 	
 	@Override
@@ -213,9 +214,24 @@ public class Game extends BasicGame
 		}
 
 	}
-//	for(int l = 0; l<blocks.length; l++){
-//		if(blocks[l].isShattered()){
-//			level +=1;
-//		}
-//	}
+	
+	public void IfEmptyBlocks() throws SlickException
+	{
+		boolean levelUp = false;
+		
+		for(int l = 0, j = 0; l<25; l++){
+			if(blocks[l].isShattered()){
+			j ++;
+			System.out.println(j);	
+			}
+		if(j == 25 && levelUp == false){
+			j = 0;
+			level +=1;
+			levelUp = true;
+			CreateBlocks(blocks);
+			ball1.setIsAlive(false);
+		
+		}
+		}
+	}//end:IfEmptyBlocks
 }
