@@ -10,7 +10,7 @@ public class Player extends Entity{
 	protected byte lives = 3;
 	private boolean leftInput = false, rightInput = false;
 	public float spd;
-	String paddle = "data/paddle.png";
+	String paddle = "data/paddle2.png";
 	
 	public Player() throws SlickException{
 		StartPos();
