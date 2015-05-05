@@ -96,9 +96,9 @@ public class Game extends BasicGame
 		for(int bRow = 0; bRow < 5; bRow++){ 
 			for(int bCol = 0; bCol < 5; bCol++){
 					blocks[b] = new Block(bCol * 90+95, bRow* 34+50); //Placement of each block with x and y position
-					b++;											  //X position of blocks is placed with width of block:90, plus 5 for individual block spacing. 	
-			}														  //Y position is placed with height of block: 34, plus 5 for individual block spacing.
-		}															  //The value 82 is spacing of each row from the vertical screen borders.
+					b++;											  //X position of blocks is placed with width of block:90.	
+			}														  //Y position is placed with height of block: 34.
+		}															  //The value 95 is spacing of each row from the vertical screen borders.
 	}																  //The value 50 is offset spacing for each column from top.
 	
 	public void CheckCollision(){
