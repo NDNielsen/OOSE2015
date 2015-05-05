@@ -41,12 +41,9 @@ public class Game extends BasicGame
 	public static void main(String[] args)	{
 		try
 		{
-			
+
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
-			
-			
-
 			
 			appgc.start();
 		}
@@ -87,6 +84,8 @@ public class Game extends BasicGame
 		ballDeath();
 		gameOver();
 		IfEmptyBlocks();
+		
+		System.out.println(ball1.getSpeed());
 	}
 	
 	@Override
@@ -145,7 +144,6 @@ public class Game extends BasicGame
 			onScreenGUI.setLives(onScreenGUI.getLives()-1);
 			ball1.startPos(startX, startY);
 			ball1.setIsAlive(false);
-//			ball1.setYD(-1*ball1.getSpeed());
 		}
 		
 		if(ball1.getIsAlive() == false){
@@ -156,7 +154,7 @@ public class Game extends BasicGame
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8F * level);
+			ball1.setSpeed(8F*level);
 		}
 	}
 	
