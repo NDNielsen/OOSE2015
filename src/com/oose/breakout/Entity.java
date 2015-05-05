@@ -6,6 +6,7 @@ import org.newdawn.slick.geom.Rectangle;
 
 public class Entity {
 	protected float x = 0, y = 0, width, height;
+	protected int lives;
 	protected Image Image;
 	protected boolean isAlive;
 	protected float speed;
@@ -59,10 +60,10 @@ public class Entity {
       return new Rectangle(x, y, Image.getWidth(), Image.getHeight());
     }
 	
-//	public void setEntityImage(Image entityImage) {
-//		this.entityImage = entityImage;
-//	}
-	
-	
-	
+	public int getLives() {
+		return lives;
+	}
+	public void setLives(int lives) {
+		this.lives = lives;
+	}	
 }

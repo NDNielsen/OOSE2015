@@ -76,13 +76,4 @@ public class Player extends Entity{
 		x = 250;
 		y = 550;
 	}
-	
-	//Setters & Getters for Player
-		public byte getLives() {
-			return lives;
-		}
-
-		public void setLIVES(byte _lives) {
-			lives = _lives;
-		}
 }

@@ -7,37 +7,22 @@ import org.newdawn.slick.SlickException;
 
 public class GUI extends Entity {
 	
-	String heart = "data/heart.png";
-	Image[] Hearts = new Image[3];
-//	byte heartCount = 3;
+	protected String hearts = "data/heart.png";
 	
 	public GUI() throws SlickException{
-//		for(int i  = 0; i <= Hearts.length;i++){
-			Hearts[0] = new Image(heart);
-			Hearts[1] = new Image(heart);
-			Hearts[2] = new Image(heart);
-//		}
-		
-		x = 5;
-		y = 5;
+		Image = new Image(hearts);
+		setX(5);
+		setY(5);
+		setWidth(30);
+		setHeight(30);
+		setLives(3);
 	}
 	
-	public void DrawGUI(Graphics g) throws SlickException{
-		
-		
-//		for(int i = 0; i <= Hearts.length; i++){
-//			if(heartCount == 3){
-//				Hearts[0].draw(x,y,30,30);
-//				Hearts[1].draw(x+35,y,30,30);
-//				Hearts[2].draw(x+70,y,30,30);
-//			} else if(heartCount == 2){
-//				Hearts[0].draw(x,y,30,30);
-//				Hearts[1].draw(x+35,y,30,30);
-//			} else if(heartCount == 1){
-//				Hearts[0].draw(x,y,30,30);
-//			} else {
-//				System.out.println("No more life left!");
-//			}
-//		}
+	public void DrawGUI(Graphics g) throws SlickException{		
+		for(int i = 0; i<getLives(); i++)
+		{
+			Image.draw(getX()+35*i,getY(),getWidth(),getHeight());
+		}
 	}
 }
+

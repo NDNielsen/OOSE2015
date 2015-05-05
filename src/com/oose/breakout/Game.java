@@ -51,8 +51,8 @@ public class Game extends BasicGame
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg2.png");
-		ball1 = new Ball(350,150);
-		
+		ball1 = new Ball(320,500);
+
 		player1 = new Player();
 		CreateBlocks(blocks);
 		onScreenGUI = new GUI();
@@ -68,6 +68,7 @@ public class Game extends BasicGame
 
 		player1.Movement(gc);
 		CheckCollision();
+		ballDeath();
 		
 	}
 	
@@ -88,7 +89,7 @@ public class Game extends BasicGame
 			if(!blocks[i].isShattered()){
 				blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
 			}
-		}		
+		}
 	}
 	
 	public void CreateBlocks(Block blocks[]) throws SlickException
@@ -102,6 +103,16 @@ public class Game extends BasicGame
 			}														  //Y position is placed with height of block: 34.
 		}															  //The value 95 is spacing of each row from the vertical screen borders.
 	}																  //The value 50 is offset spacing for each column from top.
+	
+	public void ballDeath(){
+		if(ball1.getY() > player1.getY()+50){
+			onScreenGUI.setLives(onScreenGUI.getLives()-1);
+			ball1.startPos(320, 500);
+			ball1.setIsAlive(false);
+//			ball1.setYD(-1*ball1.getSpeed());
+		}
+			System.out.println(ball1.getY() + " " + player1.getY());
+	}
 	
 	public void CheckCollision(){
 		if(ball1.getRect().intersects(player1.getRect())){
