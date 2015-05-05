@@ -11,9 +11,6 @@ public class Entity {
 	protected boolean isAlive;
 	protected float speed;
 	
-	
-	
-	
 	//Setters & Getters of entity
 	public float getWidth() {
 		return width;
@@ -33,7 +30,7 @@ public class Entity {
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
-	public boolean isIsAlive() {
+	public boolean getIsAlive() {
 		return isAlive;
 	}
 	public void setIsAlive(boolean isAlive) {

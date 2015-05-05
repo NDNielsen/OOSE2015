@@ -2,18 +2,20 @@ package com.oose.breakout;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 
 public class Ball extends Entity {
 	private float yDirection;
 	private float xDirection;
 	public int r;
 	public int scale;
+	Sound wallHit = null;
 	
 	protected String ballfile = "data/ball.png";
 
 	public Ball(int _x, int _y) throws SlickException{
 		setSpeed(8F);
-		setIsAlive(true);
+		setIsAlive(false);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		
@@ -22,6 +24,7 @@ public class Ball extends Entity {
 		scale = 1;
 
 		Image = new Image(ballfile);
+		wallHit = new Sound("data/wallHit.ogg");
 	}
 	
 	public void startPos(int x, int y){
@@ -35,14 +38,17 @@ public class Ball extends Entity {
 
 	      if (x <= 0) {
 	        setXD(getSpeed());
+	        wallHit.play();
 	      }
 
 	      if (x+r*scale >= 640) {
 	        setXD(-1*getSpeed());
+	        wallHit.play();
 	      }
 
 	      if (y <= 0) {
 	        setYD(getSpeed());
+	        wallHit.play();
 	      }
 	      
 	      //temporary function
