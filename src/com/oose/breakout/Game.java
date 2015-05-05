@@ -23,16 +23,14 @@ public class Game extends BasicGame
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
 	public int score = 0;
-<<<<<<< HEAD
 	public int level = 1;
 
-=======
 	
 	Sound backgroundMusic = null;
 	Sound explosion = null;
 	Sound collision = null;
 	Sound levelUp = null;
->>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
+
 	
 	public Game(String gamename) {
 		super(gamename);
