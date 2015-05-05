@@ -8,6 +8,7 @@ public class GUI extends Entity {
 	
 	String heart = "data/heart.png";
 	Image[] Hearts = new Image[3];
+//	byte heartCount = 3;
 	
 	public GUI() throws SlickException{
 //		for(int i  = 0; i <= Hearts.length;i++){
@@ -22,9 +23,18 @@ public class GUI extends Entity {
 	
 	public void DrawGUI(Graphics g) throws SlickException{
 //		for(int i = 0; i <= Hearts.length; i++){
-			Hearts[0].draw(x,y,30,30);
-			Hearts[1].draw(x+35,y,30,30);
-			Hearts[2].draw(x+70,y,30,30);
+//			if(heartCount == 3){
+//				Hearts[0].draw(x,y,30,30);
+//				Hearts[1].draw(x+35,y,30,30);
+//				Hearts[2].draw(x+70,y,30,30);
+//			} else if(heartCount == 2){
+//				Hearts[0].draw(x,y,30,30);
+//				Hearts[1].draw(x+35,y,30,30);
+//			} else if(heartCount == 1){
+//				Hearts[0].draw(x,y,30,30);
+//			} else {
+//				System.out.println("No more life left!");
+//			}
 //		}
 	}
 }
