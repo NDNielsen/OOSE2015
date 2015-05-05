@@ -221,17 +221,17 @@ public class Game extends BasicGame
 		
 		for(int l = 0, j = 0; l<25; l++){
 			if(blocks[l].isShattered()){
-			j ++;
-			System.out.println(j);	
+				j ++;
+				System.out.println(j);	
 			}
-		if(j == 25 && levelUp == false){
-			j = 0;
-			level +=1;
-			levelUp = true;
-			CreateBlocks(blocks);
-			ball1.setIsAlive(false);
-		
-		}
+			if(j == 25 && levelUp == false){
+				j = 0;
+				level +=1;
+				levelUp = true;
+				CreateBlocks(blocks);
+				ball1.setIsAlive(false);
+			
+			}
 		}
 	}//end:IfEmptyBlocks
 }
