@@ -19,15 +19,18 @@ public class Game extends BasicGame
 	private Image gameBackground = null;
 	Input input = null;
 	Ball ball1 = null;
+	int startX = 250, startY = 500;
 	Player player1 = null;
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
-	public int score = 0;
+	int score;
 	
 	Sound backgroundMusic = null;
 	Sound explosion = null;
 	Sound collision = null;
 	Sound levelUp = null;
+	
+	static AppGameContainer appgc;
 	
 	public Game(String gamename) {
 		super(gamename);
@@ -37,7 +40,7 @@ public class Game extends BasicGame
 	public static void main(String[] args)	{
 		try
 		{
-			AppGameContainer appgc;
+			
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
 			
@@ -58,7 +61,7 @@ public class Game extends BasicGame
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
 		gameBackground = new Image("data/bg2.png");
-		ball1 = new Ball(320,500);
+		ball1 = new Ball(startX,startY);
 		input = gc.getInput();
 		player1 = new Player();
 		CreateBlocks(blocks);
@@ -68,6 +71,7 @@ public class Game extends BasicGame
 		collision = new Sound("data/Collision.ogg");
 		levelUp = new Sound("data/levelUp.ogg");
 		backgroundMusic.loop(1f, 0.2f);
+		score = 0;
 		
 	}
 	
@@ -80,6 +84,7 @@ public class Game extends BasicGame
 		player1.Movement(gc);
 		CheckCollision();
 		ballDeath();
+		gameOver();
 		
 	}
 	
@@ -92,19 +97,32 @@ public class Game extends BasicGame
 		player1.Render();
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
-		ball1.render();
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
 		
+		if(onScreenGUI.getLives() != 0)
+			ball1.render();
+		
 		if(ball1.getIsAlive() == false){
-			
 			g.drawString("Press SPACE to launch", player1.getX()-30, 600);
+		}
+		
+		if(onScreenGUI.getLives() == 0){
+			g.setColor(Color.red);
+			g.drawString("GAME OVER! PRESS SPACE TO RETRY", 100, 400);
 		}
 		
 		for(int i = 0; i<blocks.length; i++){
 			if(!blocks[i].isShattered()){
 				blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
 			}
+		}
+	}
+	
+	public void gameOver() throws SlickException{
+		if(onScreenGUI.getLives() == 0){
+			if(input.isKeyDown(Input.KEY_SPACE))
+			appgc.reinit();
 		}
 	}
 	
@@ -123,7 +141,7 @@ public class Game extends BasicGame
 	public void ballDeath(){
 		if(ball1.getY() > player1.getY()+50){
 			onScreenGUI.setLives(onScreenGUI.getLives()-1);
-			ball1.startPos(320, 500);
+			ball1.startPos(startX, startY);
 			ball1.setIsAlive(false);
 //			ball1.setYD(-1*ball1.getSpeed());
 		}
