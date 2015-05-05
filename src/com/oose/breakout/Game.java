@@ -22,7 +22,7 @@ public class Game extends BasicGame
 	Block blocks[] = new Block[25];
 	GUI onScreenGUI = null;
 	public int score = 0;
-	
+	public int level = 1;
 
 	
 	public Game(String gamename) {
@@ -69,7 +69,6 @@ public class Game extends BasicGame
 		player1.Movement(gc);
 		CheckCollision();
 		ballDeath();
-		
 	}
 	
 	@Override
@@ -84,6 +83,7 @@ public class Game extends BasicGame
 		ball1.render();
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
+		g.drawString("Level " + level, 400, 0);	//Draw increment of score
 		
 		for(int i = 0; i<blocks.length; i++){
 			if(!blocks[i].isShattered()){
@@ -170,11 +170,17 @@ public class Game extends BasicGame
                     }
 
                     blocks[i].setShattered(true);
+                    
                 }
                 
 				System.out.println("Collide with block");
 			}
 		}
-	
+
 	}
+//	for(int l = 0; l<blocks.length; l++){
+//		if(blocks[l].isShattered()){
+//			level +=1;
+//		}
+//	}
 }
