@@ -1,5 +1,6 @@
 package com.oose.breakout;
 
+import org.newdawn.slick.Font;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -22,6 +23,8 @@ public class GUI extends Entity {
 	}
 	
 	public void DrawGUI(Graphics g) throws SlickException{
+		
+		
 //		for(int i = 0; i <= Hearts.length; i++){
 //			if(heartCount == 3){
 //				Hearts[0].draw(x,y,30,30);
