@@ -14,8 +14,8 @@ public class Ball extends Entity {
 	protected String ballfile = "data/ball.png";
 
 	public Ball(int _x, int _y) throws SlickException{
-		speed = 8F;
-		setIsAlive(false);
+		setSpeed(8F);
+		setIsAlive(true);
 		yDirection = -1*getSpeed();
 		xDirection = getSpeed();
 		
@@ -43,13 +43,17 @@ public class Ball extends Entity {
 
 	      if (x+r*scale >= 640) {
 	        setXD(-1*getSpeed());
-	        wallHit.play();
 	      }
 
 	      if (y <= 0) {
 	        setYD(getSpeed());
-	        wallHit.play();
 	      }
+	      
+	      //temporary function
+	      if (y >= 700) {
+		        setYD(-1*getSpeed());
+		      }
+	      //temporary function
 	    }
 	
 	
