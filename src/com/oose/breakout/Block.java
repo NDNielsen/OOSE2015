@@ -13,10 +13,15 @@ public class Block extends Entity{
 	public boolean shattered;
 	protected String blockImg= "data/block.png"; 
 	
-			
+	/**
+	 * Setting width and height for blocks, holds position of each block with parameters	
+	 * @param blockPosX
+	 * @param blockPosY
+	 * @throws SlickException
+	 */
 	public Block(int blockPosX, int blockPosY) throws SlickException{
-		setWidth(95);
-		setHeight(39);
+		setWidth(95);		
+		setHeight(39);		
 	    
 		//Initializes block image
 		try {
@@ -26,10 +31,6 @@ public class Block extends Entity{
 		}
 		this.x = blockPosX;
 		this.y = blockPosY;
-
-		//blockWidth = entityImage;
-		//blockHeight = entityImage;
-		
 
 		shattered = false;
 	}
