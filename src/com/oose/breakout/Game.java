@@ -81,6 +81,7 @@ public class Game extends BasicGame
 		backgroundMusic.loop(1f, 0.2f);
 		score = 0;
 		level = 1;
+	
 	}
 	
 	@Override
@@ -108,7 +109,7 @@ public class Game extends BasicGame
 		g.drawString("BreakOut", 275, 200);
 		onScreenGUI.DrawGUI(g);
 		g.drawString("Score " + score, 500, 0);	//Draw increment of score
-		g.drawString("Level " + level, 400, 0);	//Draw increment of score
+		g.drawString("Level " + level, 400, 0);	//Draw increment of level
 		
 		if(onScreenGUI.getLives() != 0)
 			ball1.render();
@@ -161,7 +162,9 @@ public class Game extends BasicGame
 			ball1.startPos(startX, startY);
 			ball1.setIsAlive(false);
 			hurt.play();
-//			ball1.setYD(-1*ball1.getSpeed());
+
+
+
 		}
 		
 		if(ball1.getIsAlive() == false){
@@ -172,8 +175,9 @@ public class Game extends BasicGame
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8F * level);
+			ball1.setSpeed(8F);
 			release.play();
+
 		}
 	}
 	
@@ -257,6 +261,7 @@ public class Game extends BasicGame
 			if(j == 25 ){
 				j = 0;
 				level +=1;
+				ball1.startPos(320, 550);
 				ball1.setIsAlive(false);
 				CreateBlocks(blocks);
 				levelUp.play();
