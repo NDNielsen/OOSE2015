@@ -170,10 +170,11 @@ public class Game extends BasicGame
 			ball1.setX(player1.getX()+52);
 			ball1.setY(player1.getY()-40);
 		}
+
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8F);
+			ball1.setSpeed(8f);
 			release.play();
 
 		}
@@ -259,7 +260,8 @@ public class Game extends BasicGame
 			if(j == 25 ){
 				j = 0;
 				level +=1;
-				ball1.startPos(320, 550);
+
+				ball1.startPos(320,500);
 				ball1.setIsAlive(false);
 				CreateBlocks(blocks);
 				levelUp.play();
