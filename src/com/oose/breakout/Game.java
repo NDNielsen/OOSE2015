@@ -81,6 +81,7 @@ public class Game extends BasicGame
 		
 		score = 0;
 		level = 1;
+	
 	}
 	
 	@Override
@@ -160,7 +161,6 @@ public class Game extends BasicGame
 	public void ballDeath(){
 		if(ball1.getY() > player1.getY()+50){
 			onScreenGUI.setLives(onScreenGUI.getLives()-1);
-			ball1.startPos(startX, startY);
 			ball1.setIsAlive(false);
 			hurt.play();
 		}
@@ -173,7 +173,7 @@ public class Game extends BasicGame
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8F*level);
+			ball1.setSpeed(9.9f);
 			release.play();
 		}
 	}
@@ -258,6 +258,7 @@ public class Game extends BasicGame
 			if(j == 25 ){
 				j = 0;
 				level +=1;
+				ball1.startPos(320, 550);
 				ball1.setIsAlive(false);
 				CreateBlocks(blocks);
 				levelUp.play();
