@@ -166,14 +166,13 @@ public class Game extends BasicGame
 		}
 		
 		if(ball1.getIsAlive() == false){
-			ball1.setSpeed(0);
 			ball1.setX(player1.getX()+52);
 			ball1.setY(player1.getY()-40);
 		}
 		
 		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8f);
+			ball1.setSpeed(8f*level);
 			release.play();
 		}
 	}
