@@ -258,6 +258,7 @@ public class Game extends BasicGame
 			if(j == 25 ){
 				j = 0;
 				level +=1;
+				ball1.startPos(320,500);
 				ball1.setIsAlive(false);
 				CreateBlocks(blocks);
 				levelUp.play();
