@@ -221,6 +221,7 @@ public class Game extends BasicGame
                 Point bottomPoint = new Point(left, top + height + 20);
                 
                 if (!blocks[i].isShattered()) {
+
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed()); 						
                         explosion.play();
@@ -228,16 +229,19 @@ public class Game extends BasicGame
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
                         ball1.setXD(ball1.getSpeed());
+
                         explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
                         ball1.setYD(ball1.getSpeed());
+
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
                         ball1.setYD(-1*ball1.getSpeed());
+
                         explosion.play();
                     }
 
