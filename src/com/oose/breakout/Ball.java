@@ -20,13 +20,13 @@ public class Ball extends Entity {
 	 * @throws SlickException
 	 */
 	public Ball(int _x, int _y) throws SlickException{
-
+		//Set initial speed, state and direction.
 		speed = 8f;
 		setIsAlive(false);
 		yDirection = -1*speed;
 		xDirection = speed;
 
-		
+		//Set the initial position of the ball, size (r is radius value) and the variable for scale (not really used)
 		startPos(_x,_y);
 		r = 20;
 		scale = 1;
