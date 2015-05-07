@@ -81,6 +81,7 @@ public class Game extends BasicGame
 		vol = 0.2f;
 		
 		score = 0;
+		finalScore = 0;
 		level = 1;
 	}
 	
@@ -108,7 +109,7 @@ public class Game extends BasicGame
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
 		onScreenGUI.DrawGUI(g);
-		g.drawString("Score " + score, 500, 0);	//Draw increment of score
+		g.drawString("Score " + (score + finalScore), 500, 0);	//Draw increment of score
 		g.drawString("Level " + level, 400, 0);	//Draw increment of level
 		
 		if(onScreenGUI.getLives() != 0)
@@ -258,6 +259,7 @@ public class Game extends BasicGame
 			}
 			
 			if(j == 25 ){
+				finalScore += i * 50;
 				level +=1;
 				ball1.startPos(320,500);
 				ball1.setIsAlive(false);
