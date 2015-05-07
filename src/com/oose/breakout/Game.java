@@ -97,6 +97,7 @@ public class Game extends BasicGame
 		ballDeath();
 		gameOver();
 		IfEmptyBlocks();
+		System.out.println(ball1.getSpeed());
 	}
 	
 	@Override
@@ -104,7 +105,6 @@ public class Game extends BasicGame
 	{
 		//Renders the images
 		gameBackground.draw();
-		player1.CheckMovement(g);
 		player1.Render();
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
