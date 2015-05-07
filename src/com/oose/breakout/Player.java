@@ -42,29 +42,19 @@ public class Player extends Entity{
 		
 		if(input.isKeyDown(Input.KEY_LEFT)){
 			leftInput = true;
+			x = x - getSpeed();
 		} else {
 			leftInput = false;
 		}
 		
 		if(input.isKeyDown(Input.KEY_RIGHT)){
 			rightInput = true;
+			x = x + getSpeed();
 		} else {
 			rightInput = false;
 		}
 	}
 	
-	//Needs to be placed in the Renderer in Game Class
-	public void CheckMovement(Graphics g){
-		if(leftInput){
-			g.drawString("Left!", 200, 200);
-			x = x - getSpeed();
-		}
-		
-		if(rightInput){
-			g.drawString("Right!", 380, 200);
-			x = x + getSpeed();
-		}
-	}
 	
 	//Needs to be placed in the Renderer in Game Class
 	public void Render(){
