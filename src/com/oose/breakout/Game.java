@@ -58,7 +58,7 @@ public class Game extends BasicGame
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
 			appgc.setVSync(true);
-			
+			appgc.setMouseGrabbed(true);
 			appgc.start();
 		}
 		catch (SlickException ex)
