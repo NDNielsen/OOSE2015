@@ -140,8 +140,11 @@ public class Game extends BasicGame
 		}
 	}
 	
+	/**
+	 * Stop music, play game over sound and give the user the option to retry
+	 * @throws SlickException
+	 */
 	public void gameOver() throws SlickException{
-		
 		if(onScreenGUI.getLives() == 0){
 			if(!gameOver.playing()){
 				gameOver.play(1,vol);
@@ -173,6 +176,11 @@ public class Game extends BasicGame
 	}																  //The value 50 is offset spacing for each column from top.
 	
 
+	/**
+	 * set isAlive to false when the ball drops below the paddle
+	 * lock the ball to the paddle position if isAlive is false
+	 * set isAlive true again if the mouse is clicked, releasing the ball 
+	 */
 	public void ballDeath(){
 		if(ball1.getY() > player1.getY()+50){
 			onScreenGUI.setLives(onScreenGUI.getLives()-1);
@@ -193,6 +201,9 @@ public class Game extends BasicGame
 		}
 	}
 	
+	/**
+	 * All collision between objects are handled here
+	 */
 	public void CheckCollision(){
 		if(ball1.getRect().intersects(player1.getRect())){
 			System.out.println("Collision Detected");
@@ -264,6 +275,12 @@ public class Game extends BasicGame
 
 	}
 	
+	/**
+	 * Reset the blocks when all blocks have been destroyed
+	 * Add 1 to level
+	 * Score is calculated from the amount of blocks destroyed
+	 * @throws SlickException
+	 */
 	public void IfEmptyBlocks() throws SlickException
 	{	
 		int i = 0;
