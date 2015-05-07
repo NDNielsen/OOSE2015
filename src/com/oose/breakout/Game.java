@@ -122,7 +122,7 @@ public class Game extends BasicGame
 			g.setColor(Color.red);
 			g.drawString("GAME OVER! PRESS SPACE TO RETRY", player1.getX()-70, 600);
 		}
-		
+		//For-loop: Draws the blocks with image, if the blocks are not shattered (destroyed)
 		for(int i = 0; i<blocks.length; i++){
 			if(!blocks[i].isShattered()){
 				blocks[i].getImage().draw(blocks[i].getX(),blocks[i].getY());
@@ -145,11 +145,14 @@ public class Game extends BasicGame
 		}
 	}
 		
-	
+	/**
+	 * Create 25 blocks divided in 5 rows and 5 columns
+	 * @param blocks
+	 * @throws SlickException
+	 */
 	public void CreateBlocks(Block blocks[]) throws SlickException
 	{
 		int b = 0;
-		//Double for-loop, create 5 rows and 5 columns of blocks
 		for(int bRow = 0; bRow < 5; bRow++){ 
 			for(int bCol = 0; bCol < 5; bCol++){
 					blocks[b] = new Block(bCol * 90+95, bRow* 34+50); //Placement of each block with x and y position
@@ -216,26 +219,22 @@ public class Game extends BasicGame
                 
                 if (!blocks[i].isShattered()) {
                     if (blocks[i].getRect().contains(rightPoint)) {
-                        ball1.setXD(-1*ball1.getSpeed());
-//                        score +=50; 						//Increase the score by 50.
+                        ball1.setXD(-1*ball1.getSpeed()); 						
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
                         ball1.setXD(ball1.getSpeed());
-//                        score +=50;
                         explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
                         ball1.setYD(ball1.getSpeed());
-//                        score +=50;
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
                         ball1.setYD(-1*ball1.getSpeed());
-//                        score +=50;
                         explosion.play();
                     }
 
