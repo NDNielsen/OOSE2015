@@ -87,15 +87,6 @@ public class Ball extends Entity {
 	      yDirection = y;
 	    }
 	 
-	 /**
-	  * Get the direction on the y axis
-	  * @return
-	  */
-	 public float getYD()
-	    {
-	      return yDirection;
-	    }
-	 
 	/**
 	 * Draw the image of the ball
 	 * @throws SlickException
