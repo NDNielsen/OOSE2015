@@ -96,7 +96,6 @@ public class Game extends BasicGame
 		ballDeath();
 		gameOver();
 		IfEmptyBlocks();
-		System.out.println(ball1.getSpeed());
 	}
 	
 	@Override
