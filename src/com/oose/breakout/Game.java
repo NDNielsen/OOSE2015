@@ -25,6 +25,7 @@ public class Game extends BasicGame
 	GUI onScreenGUI = null;
 	float vol;
 	int score;
+	int finalScore;
 	int level;;
 	
 	static Sound backgroundMusic = null;
@@ -216,25 +217,25 @@ public class Game extends BasicGame
                 if (!blocks[i].isShattered()) {
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed());
-                        score +=50; 						//Increase the score by 50.
+//                        score +=50; 						//Increase the score by 50.
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
                         ball1.setXD(ball1.getSpeed());
-                        score +=50;
+//                        score +=50;
                         explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
                         ball1.setYD(ball1.getSpeed());
-                        score +=50;
+//                        score +=50;
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
                         ball1.setYD(-1*ball1.getSpeed());
-                        score +=50;
+//                        score +=50;
                         explosion.play();
                     }
 
@@ -250,12 +251,14 @@ public class Game extends BasicGame
 	
 	public void IfEmptyBlocks() throws SlickException
 	{	
+		int i = 0;
 		for(int l = 0, j = 0; l<25; l++){
 			if(blocks[l].isShattered()){
 				j ++;
+				i = j;
 			}
+			
 			if(j == 25 ){
-				j = 0;
 				level +=1;
 				ball1.startPos(320,500);
 				ball1.setIsAlive(false);
@@ -263,5 +266,6 @@ public class Game extends BasicGame
 				levelUp.play();
 			}
 		}
+		score = i*50;
 	}//end:IfEmptyBlocks
 }

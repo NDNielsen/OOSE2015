@@ -14,7 +14,7 @@ public class Player extends Entity{
 	
 	public Player() throws SlickException{
 		StartPos();
-		spd = 0.5f;
+		spd = 0.8f;
 		setSpeed(spd);
 		setHeight(25);
 		setWidth(125);
