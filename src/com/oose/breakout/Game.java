@@ -58,7 +58,7 @@ public class Game extends BasicGame
 			appgc = new AppGameContainer(new Game("BreakOut 2015"));
 			appgc.setDisplayMode(sHeight, sWidth, false);
 			appgc.setVSync(true);
-			
+			appgc.setMouseGrabbed(true);
 			appgc.start();
 		}
 		catch (SlickException ex)
@@ -98,6 +98,10 @@ public class Game extends BasicGame
 		gameOver();
 		IfEmptyBlocks();
 		System.out.println(ball1.getSpeed());
+		
+		if(input.isKeyDown(input.KEY_ESCAPE)){
+			appgc.exit();
+		}
 	}
 	
 	@Override
@@ -116,12 +120,12 @@ public class Game extends BasicGame
 			ball1.render();
 		
 		if(ball1.getIsAlive() == false && onScreenGUI.getLives() != 0){
-			g.drawString("Press SPACE to launch", player1.getX()-30, 600);
+			g.drawString("Press LEFT MOUSE to launch", player1.getX()-50, 600);
 		}
 		
 		if(onScreenGUI.getLives() == 0){
 			g.setColor(Color.red);
-			g.drawString("GAME OVER! PRESS SPACE TO RETRY", player1.getX()-70, 600);
+			g.drawString("GAME OVER! PRESS LEFT MOUSE TO RETRY", player1.getX()-95, 600);
 		}
 		//For-loop: Draws the blocks with image, if the blocks are not shattered (destroyed)
 		for(int i = 0; i<blocks.length; i++){
@@ -139,10 +143,11 @@ public class Game extends BasicGame
 				backgroundMusic.stop();
 				vol = 0;
 			}
-			if(input.isKeyDown(Input.KEY_SPACE)){
+			if(input.isMouseButtonDown(input.MOUSE_LEFT_BUTTON)){
 				backgroundMusic.loop(1,0.2f);
 				appgc.reinit();
 			}
+			
 		}
 	}
 		
@@ -177,7 +182,7 @@ public class Game extends BasicGame
 		
 		if(ball1.getIsAlive() == false && input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 			ball1.setIsAlive(true);
-			ball1.setSpeed(8f*level);
+			ball1.setSpeed(4f+8*level/2);
 			release.play();
 		}
 	}
