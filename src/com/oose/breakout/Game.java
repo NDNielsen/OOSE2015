@@ -68,7 +68,10 @@ public class Game extends BasicGame
 
 	}
 	
-	
+	/**
+	 * The GameContainer method creates the visible objects in the game. 
+	 * Initialization of values for volume, start score, final score of each level, and start level.  
+	 */
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		gc.setShowFPS(false);
@@ -103,8 +106,10 @@ public class Game extends BasicGame
 			appgc.exit();
 		}
 	}
-	
 	@Override
+	/**
+	 * The render method draws the graphics of the game
+	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		//Renders the images
