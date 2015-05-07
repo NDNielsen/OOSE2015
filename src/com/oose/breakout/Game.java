@@ -167,6 +167,7 @@ public class Game extends BasicGame
 		}															  //The value 95 is spacing of each row from the vertical screen borders.
 	}																  //The value 50 is offset spacing for each column from top.
 	
+
 	public void ballDeath(){
 		if(ball1.getY() > player1.getY()+50){
 			onScreenGUI.setLives(onScreenGUI.getLives()-1);
