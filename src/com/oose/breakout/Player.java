@@ -1,4 +1,5 @@
 package com.oose.breakout;
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -14,7 +15,7 @@ public class Player extends Entity{
 	
 	public Player() throws SlickException{
 		StartPos();
-		spd = 0.8f;
+		spd = 30f;
 		setSpeed(spd);
 		setHeight(25);
 		setWidth(125);
@@ -24,47 +25,10 @@ public class Player extends Entity{
 	
 	//Needs to be placed in the Update in Game Class
 	public void Movement(GameContainer gc){
-		Input input = gc.getInput();
-		
-		//Checks whether the player is going out of screen region (Left side)
-		if(x <= 0 && input.isKeyDown(Input.KEY_LEFT)){
-			setSpeed(0);
-		} else {
-			setSpeed(spd);
-			
-			// Right side
-			if(x+width >= 640 && input.isKeyDown(Input.KEY_RIGHT)){
-				setSpeed(0);
-			} else {
-				setSpeed(spd);
-			}
-		}
-		
-		if(input.isKeyDown(Input.KEY_LEFT)){
-			leftInput = true;
-		} else {
-			leftInput = false;
-		}
-		
-		if(input.isKeyDown(Input.KEY_RIGHT)){
-			rightInput = true;
-		} else {
-			rightInput = false;
-		}
+		setX(Mouse.getX());
 	}
 	
-	//Needs to be placed in the Renderer in Game Class
-	public void CheckMovement(Graphics g){
-		if(leftInput){
-			g.drawString("Left!", 200, 200);
-			x = x - getSpeed();
-		}
-		
-		if(rightInput){
-			g.drawString("Right!", 380, 200);
-			x = x + getSpeed();
-		}
-	}
+
 	
 	//Needs to be placed in the Renderer in Game Class
 	public void Render(){
