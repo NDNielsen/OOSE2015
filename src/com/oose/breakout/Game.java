@@ -205,43 +205,52 @@ public class Game extends BasicGame
 	 * All collision between objects are handled here
 	 */
 	public void CheckCollision(){
+		//Collision between ball and paddle
 		if(ball1.getRect().intersects(player1.getRect())){
 			System.out.println("Collision Detected");
 			
+			//Set variables for the minimum x for both ball and paddle
 			int paddleX = (int)player1.getRect().getMinX();
             int ballX = (int)ball1.getRect().getMinX();
-
-            int first = paddleX + 62;
-            int second = paddleX + 62;
-
-            if (ballX < first) {
+            
+            //Set a variable to specify the middle point of the paddle
+            int middlePoint = paddleX + 62;
+            
+            //Check if the ball is on the left side of the paddle when it hits
+            //if so, the ball will move to the left
+            if (ballX < middlePoint) {
                 ball1.setXD(-1*ball1.getSpeed());
                 ball1.setYD(-1*ball1.getSpeed());
                 collision.play();
             }
-
-            if (ballX> second) {
+            
+            //Check if the ball is on the right side of the paddle when it hits
+            //if so, the ball will move to the right
+            if (ballX> middlePoint) {
                 ball1.setXD(ball1.getSpeed());
                 ball1.setYD(-1*ball1.getSpeed());
                 collision.play();
             }
 		}
 		
+		//Check if the ball hits any of the blocks
 		for (int i = 0; i < 25; i++) {
 			if(ball1.getRect().intersects(blocks[i].getRect())){
 				
+				//Set int variables to use for creating points
 				int left = (int)ball1.getRect().getMinX();
                 int height = (int)ball1.getRect().getHeight();
                 int width = (int)ball1.getRect().getWidth();
                 int top = (int)ball1.getRect().getMinY();
                 
+                //Set points to use for collision detection
                 Point rightPoint = new Point(left + width + 20, top);
                 Point leftPoint = new Point(left - 20, top);
                 Point topPoint = new Point(left, top - 20);
                 Point bottomPoint = new Point(left, top + height + 20);
                 
+                //List of if statements that check if any point of the ball is colliding
                 if (!blocks[i].isShattered()) {
-
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed()); 						
                         explosion.play();
@@ -249,24 +258,19 @@ public class Game extends BasicGame
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
                         ball1.setXD(ball1.getSpeed());
-
                         explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
                         ball1.setYD(ball1.getSpeed());
-
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
                         ball1.setYD(-1*ball1.getSpeed());
-
                         explosion.play();
                     }
-
                     blocks[i].setShattered(true);
-                    
                 }
                 
 				System.out.println("Collide with block");

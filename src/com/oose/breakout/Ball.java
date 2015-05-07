@@ -49,10 +49,12 @@ public class Ball extends Entity {
 	 * Movement behavior of the ball. Also controls bouncing off the borders. 
 	 * @throws SlickException
 	 */
-	public void move() throws SlickException{		  
+	public void move() throws SlickException{
+		  //Add to the x and y variables to make the ball move
 		  x += xDirection;
 	      y += yDirection;
-
+	      
+	      //the following three if statements makes the ball go the other way if it hits a border
 	      if (x <= 0) {
 	        setXD(speed);
 	        wallHit.play();
