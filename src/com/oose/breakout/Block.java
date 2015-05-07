@@ -40,6 +40,10 @@ public class Block extends Entity{
 		return shattered;
 	}
 	
+	/**
+	 * Set the state of the block
+	 * @param shattered
+	 */
 	public void setShattered(boolean shattered)
 	{
 		this.shattered = shattered;
