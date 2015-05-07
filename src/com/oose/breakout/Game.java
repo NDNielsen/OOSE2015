@@ -175,7 +175,7 @@ public class Game extends BasicGame
 			ball1.setY(player1.getY()-40);
 		}
 		
-		if(ball1.getIsAlive() == false && input.isKeyDown(Input.KEY_SPACE)){
+		if(ball1.getIsAlive() == false && input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
 			ball1.setIsAlive(true);
 			ball1.setSpeed(8f*level);
 			release.play();
