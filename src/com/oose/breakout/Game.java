@@ -25,6 +25,7 @@ public class Game extends BasicGame
 	GUI onScreenGUI = null;
 	float vol;
 	int score;
+	int finalScore;
 	int level;;
 	
 	static Sound backgroundMusic = null;
@@ -80,6 +81,7 @@ public class Game extends BasicGame
 		vol = 0.2f;
 		
 		score = 0;
+		finalScore = 0;
 		level = 1;
 	}
 	
@@ -107,7 +109,7 @@ public class Game extends BasicGame
 		g.setColor(Color.white);
 		g.drawString("BreakOut", 275, 200);
 		onScreenGUI.DrawGUI(g);
-		g.drawString("Score " + score, 500, 0);	//Draw increment of score
+		g.drawString("Score " + (score + finalScore), 500, 0);	//Draw increment of score
 		g.drawString("Level " + level, 400, 0);	//Draw increment of level
 		
 		if(onScreenGUI.getLives() != 0)
@@ -217,23 +219,40 @@ public class Game extends BasicGame
                 Point bottomPoint = new Point(left, top + height + 20);
                 
                 if (!blocks[i].isShattered()) {
+<<<<<<< HEAD
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed()); 						
+=======
+                    if (blocks[i].getRect().contains(rightPoint)) {
+                        ball1.setXD(-1*ball1.getSpeed()); 						
+>>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
+<<<<<<< HEAD
                         ball1.setXD(ball1.getSpeed());
+=======
+                        ball1.setXD(ball1.getSpeed());
+>>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
                         explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
+<<<<<<< HEAD
                         ball1.setYD(ball1.getSpeed());
+=======
+                        ball1.setYD(ball1.getSpeed());
+>>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
+<<<<<<< HEAD
                         ball1.setYD(-1*ball1.getSpeed());
+=======
+                        ball1.setYD(-1*ball1.getSpeed());
+>>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
                         explosion.play();
                     }
 
@@ -249,12 +268,15 @@ public class Game extends BasicGame
 	
 	public void IfEmptyBlocks() throws SlickException
 	{	
+		int i = 0;
 		for(int l = 0, j = 0; l<25; l++){
 			if(blocks[l].isShattered()){
 				j ++;
+				i = j;
 			}
+			
 			if(j == 25 ){
-				j = 0;
+				finalScore += i * 50;
 				level +=1;
 				ball1.startPos(320,500);
 				ball1.setIsAlive(false);
@@ -262,5 +284,6 @@ public class Game extends BasicGame
 				levelUp.play();
 			}
 		}
+		score = i*50;
 	}//end:IfEmptyBlocks
 }
