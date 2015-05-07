@@ -13,14 +13,20 @@ public class Ball extends Entity {
 	
 	protected String ballfile = "data/ball.png";
 
+	/**
+	 * Create a ball with a set speed and size
+	 * @param _x
+	 * @param _y
+	 * @throws SlickException
+	 */
 	public Ball(int _x, int _y) throws SlickException{
-
+		//Set initial speed, state and direction.
 		speed = 8f;
 		setIsAlive(false);
 		yDirection = -1*speed;
 		xDirection = speed;
 
-		
+		//Set the initial position of the ball, size (r is radius value) and the variable for scale (not really used)
 		startPos(_x,_y);
 		r = 20;
 		scale = 1;
@@ -29,11 +35,20 @@ public class Ball extends Entity {
 		wallHit = new Sound("data/wallHit.ogg");
 	}
 	
+	/**
+	 * Reset the placement of the ball
+	 * @param x
+	 * @param y
+	 */
 	public void startPos(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
 	
+	/**
+	 * Movement behavior of the ball. Also controls bouncing off the borders. 
+	 * @throws SlickException
+	 */
 	public void move() throws SlickException{		  
 		  x += xDirection;
 	      y += yDirection;
@@ -54,28 +69,37 @@ public class Ball extends Entity {
 	        wallHit.play();
 
 	      }
-	      
-	      //temporary function
-	      if (y >= 700) {
-		        setYD(-1*getSpeed());
-		      }
-	      //temporary function
 	    }
 	
-	
+	/**
+	 * Set the direction on the x axis
+	 * @param x
+	 */
 	 public void setXD(float x){
 	      xDirection = x;
 	    }
 
+	 /**
+	 * Set the direction on the y axis
+	 * @param x
+	 */
 	 public void setYD(float y){
 	      yDirection = y;
 	    }
 	 
+	 /**
+	  * Get the direction on the y axis
+	  * @return
+	  */
 	 public float getYD()
 	    {
 	      return yDirection;
 	    }
-	
+	 
+	/**
+	 * Draw the image of the ball
+	 * @throws SlickException
+	 */
 	public void render()throws SlickException{
 		Image.draw(x,y,r*scale,r*scale);
 	}
