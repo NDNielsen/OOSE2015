@@ -219,40 +219,27 @@ public class Game extends BasicGame
                 Point bottomPoint = new Point(left, top + height + 20);
                 
                 if (!blocks[i].isShattered()) {
-<<<<<<< HEAD
+
                     if (blocks[i].getRect().contains(rightPoint)) {
                         ball1.setXD(-1*ball1.getSpeed()); 						
-=======
-                    if (blocks[i].getRect().contains(rightPoint)) {
-                        ball1.setXD(-1*ball1.getSpeed()); 						
->>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(leftPoint)) {
-<<<<<<< HEAD
                         ball1.setXD(ball1.getSpeed());
-=======
-                        ball1.setXD(ball1.getSpeed());
->>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
+
                         explosion.play();
                     }
 
                     if (blocks[i].getRect().contains(topPoint)) {
-<<<<<<< HEAD
                         ball1.setYD(ball1.getSpeed());
-=======
-                        ball1.setYD(ball1.getSpeed());
->>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
+
                         explosion.play();
                     }
 
                     else if (blocks[i].getRect().contains(bottomPoint)) {
-<<<<<<< HEAD
                         ball1.setYD(-1*ball1.getSpeed());
-=======
-                        ball1.setYD(-1*ball1.getSpeed());
->>>>>>> branch 'master' of https://github.com/NDNielsen/OOSE2015.git
+
                         explosion.play();
                     }
 
